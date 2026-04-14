@@ -18,7 +18,7 @@ export default function ServicesPage() {
         <SectionHeading
           eyebrow="Service catalogue"
           title="Support designed around the work founders keep carrying for too long."
-          body="These pages turn the original service menu into a cleaner buying path, with clearer scope, stronger outcomes, and better internal linking."
+          body="Use this page to compare where Seamless VA can create the fastest lift: daily operations, bookkeeping upkeep, or growth execution support."
         />
         <div className="mt-8 grid gap-5 lg:grid-cols-3">
           {services.map((service) => (

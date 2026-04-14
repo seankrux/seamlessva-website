@@ -299,3 +299,48 @@ export const processSteps = [
       "Once the scope is clear, the support team takes ownership of the recurring work while keeping communication close enough that leadership never loses visibility.",
   },
 ];
+
+export const goodFitSignals = [
+  {
+    title: "Founder time keeps disappearing into coordination",
+    body: "Inbox follow-up, scheduling, task chasing, and client admin are pulling senior attention away from sales, delivery, and decisions.",
+  },
+  {
+    title: "Back-office work is getting handled too late",
+    body: "Bookkeeping upkeep, documentation, and recurring admin are turning into reactive cleanup instead of a steady operating rhythm.",
+  },
+  {
+    title: "Growth activity needs tighter follow-through",
+    body: "Leads, campaigns, and client communication need someone to keep momentum moving without constant oversight from leadership.",
+  },
+];
+
+export const operatingPrinciples = [
+  {
+    title: "Document the workflow before it breaks",
+    body: "We stabilize recurring work with clear ownership, communication rules, and lightweight process documentation.",
+  },
+  {
+    title: "Work inside the stack you already use",
+    body: "Support is designed to fit your current tools first, then improve the handoffs and automation around them.",
+  },
+  {
+    title: "Keep leadership visibility close",
+    body: "Clients should always know what is owned, what is pending, and what needs a decision from them next.",
+  },
+];
+
+export const reviewThemes = [
+  {
+    title: "Clarity",
+    body: "Clients describe clearer ownership, cleaner communication, and fewer loose ends landing back on leadership.",
+  },
+  {
+    title: "Continuity",
+    body: "The work feels connected across admin, finance, and client support instead of being handled as isolated tasks.",
+  },
+  {
+    title: "Calmer operations",
+    body: "The payoff is a steadier operating rhythm with less last-minute cleanup and less founder context switching.",
+  },
+];
