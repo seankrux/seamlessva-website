@@ -1,4 +1,5 @@
 import type { MetadataRoute } from "next";
+import { company } from "@/lib/site-data";
 
 export default function robots(): MetadataRoute.Robots {
   return {
@@ -6,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: "*",
       allow: "/",
     },
-    sitemap: "https://seamlessva.com/sitemap.xml",
+    sitemap: `${company.siteUrl}/sitemap.xml`,
   };
 }

@@ -26,7 +26,7 @@ export const company = {
   email: "sales@seamlessva.com",
   phone: "+1-289-769-1537",
   location: "268 Hillside Dr, Mississauga, Ontario, Canada",
-  siteUrl: "https://seamlessva.com",
+  siteUrl: "https://seamless-va.com",
   toolStack: [
     "Google Workspace",
     "QuickBooks",

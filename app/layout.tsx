@@ -16,7 +16,7 @@ const bodyFont = Space_Grotesk({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://seamlessva.com"),
+  metadataBase: new URL(company.siteUrl),
   title: {
     default: "Seamless VA | Operational support that keeps growth moving",
     template: "%s | Seamless VA",

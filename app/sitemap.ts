@@ -1,8 +1,7 @@
 import type { MetadataRoute } from "next";
-import { caseStudies, services } from "@/lib/site-data";
+import { company, caseStudies, services } from "@/lib/site-data";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const base = "https://seamlessva.com";
   const staticRoutes = [
     "",
     "/about",
@@ -16,15 +15,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   return [
     ...staticRoutes.map((route) => ({
-      url: `${base}${route}`,
+      url: `${company.siteUrl}${route}`,
       lastModified: new Date(),
     })),
     ...services.map((service) => ({
-      url: `${base}/services/${service.slug}`,
+      url: `${company.siteUrl}/services/${service.slug}`,
       lastModified: new Date(),
     })),
     ...caseStudies.map((study) => ({
-      url: `${base}/case-studies/${study.slug}`,
+      url: `${company.siteUrl}/case-studies/${study.slug}`,
       lastModified: new Date(),
     })),
   ];
