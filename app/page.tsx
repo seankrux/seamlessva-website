@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { SectionHeading } from "@/components/site-shell";
 import {
@@ -8,6 +9,13 @@ import {
   services,
   testimonials,
 } from "@/lib/site-data";
+import { createPageMetadata } from "@/lib/metadata";
+
+export const metadata: Metadata = createPageMetadata({
+  path: "/",
+  description:
+    "Seamless VA helps founders and lean teams offload admin, bookkeeping, and growth operations with a conversion-focused support model.",
+});
 
 export default function Home() {
   const organizationSchema = {

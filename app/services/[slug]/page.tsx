@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { SectionHeading } from "@/components/site-shell";
+import { createPageMetadata } from "@/lib/metadata";
 import { caseStudies, services } from "@/lib/site-data";
 
 type PageProps = {
@@ -22,13 +23,11 @@ export async function generateMetadata({
     return {};
   }
 
-  return {
+  return createPageMetadata({
     title: service.title,
     description: service.metaDescription,
-    alternates: {
-      canonical: `/services/${service.slug}`,
-    },
-  };
+    path: `/services/${service.slug}`,
+  });
 }
 
 export default async function ServiceDetailPage({ params }: PageProps) {

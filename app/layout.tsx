@@ -23,18 +23,6 @@ export const metadata: Metadata = {
   },
   description:
     "Seamless VA helps founders and lean teams offload admin, bookkeeping, and growth operations with a conversion-focused support model.",
-  openGraph: {
-    title: "Seamless VA",
-    description:
-      "Operational support for founders, operators, and growth teams who need cleaner systems and steadier execution.",
-    url: "https://seamlessva.com",
-    siteName: "Seamless VA",
-    locale: "en_CA",
-    type: "website",
-  },
-  alternates: {
-    canonical: "/",
-  },
 };
 
 export default function RootLayout({

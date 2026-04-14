@@ -1,12 +1,14 @@
 import type { Metadata } from "next";
 import { SectionHeading } from "@/components/site-shell";
+import { createPageMetadata } from "@/lib/metadata";
 import { company, processSteps } from "@/lib/site-data";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = createPageMetadata({
   title: "Contact",
   description:
     "Book a consultation with Seamless VA to discuss operational support, bookkeeping, growth execution, and onboarding needs.",
-};
+  path: "/contact",
+});
 
 export default function ContactPage() {
   return (

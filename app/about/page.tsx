@@ -1,12 +1,14 @@
 import type { Metadata } from "next";
 import { SectionHeading } from "@/components/site-shell";
+import { createPageMetadata } from "@/lib/metadata";
 import { company } from "@/lib/site-data";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = createPageMetadata({
   title: "About",
   description:
     "Learn how Seamless VA approaches client support, process design, and operational execution for growing businesses.",
-};
+  path: "/about",
+});
 
 export default function AboutPage() {
   return (

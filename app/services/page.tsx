@@ -1,13 +1,15 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { SectionHeading } from "@/components/site-shell";
+import { createPageMetadata } from "@/lib/metadata";
 import { services } from "@/lib/site-data";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = createPageMetadata({
   title: "Services",
   description:
     "Explore Seamless VA services across virtual assistance, bookkeeping support, and automation-led marketing operations.",
-};
+  path: "/services",
+});
 
 export default function ServicesPage() {
   return (

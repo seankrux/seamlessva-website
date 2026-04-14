@@ -1,12 +1,14 @@
 import type { Metadata } from "next";
 import { SectionHeading } from "@/components/site-shell";
+import { createPageMetadata } from "@/lib/metadata";
 import { testimonials } from "@/lib/site-data";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = createPageMetadata({
   title: "Reviews",
   description:
     "Read how clients describe Seamless VA support, onboarding clarity, and the practical lift created by cleaner operations.",
-};
+  path: "/reviews",
+});
 
 export default function ReviewsPage() {
   return (

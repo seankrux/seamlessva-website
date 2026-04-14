@@ -1,10 +1,12 @@
 import type { Metadata } from "next";
+import { createPageMetadata } from "@/lib/metadata";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = createPageMetadata({
   title: "Terms of Use",
   description:
     "Read the Seamless VA terms of use for site visitors, consultation requests, and service discussions.",
-};
+  path: "/terms",
+});
 
 export default function TermsPage() {
   return (

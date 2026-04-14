@@ -1,13 +1,15 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { SectionHeading } from "@/components/site-shell";
+import { createPageMetadata } from "@/lib/metadata";
 import { caseStudies } from "@/lib/site-data";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = createPageMetadata({
   title: "Case Studies",
   description:
     "See how Seamless VA supports growing teams with cleaner operations, stronger follow-through, and better execution rhythm.",
-};
+  path: "/case-studies",
+});
 
 export default function CaseStudiesPage() {
   return (

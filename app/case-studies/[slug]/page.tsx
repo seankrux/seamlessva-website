@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { createPageMetadata } from "@/lib/metadata";
 import { caseStudies, services } from "@/lib/site-data";
 
 type PageProps = {
@@ -21,13 +22,11 @@ export async function generateMetadata({
     return {};
   }
 
-  return {
+  return createPageMetadata({
     title: study.title,
     description: study.summary,
-    alternates: {
-      canonical: `/case-studies/${study.slug}`,
-    },
-  };
+    path: `/case-studies/${study.slug}`,
+  });
 }
 
 export default async function CaseStudyPage({ params }: PageProps) {
