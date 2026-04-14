@@ -18,7 +18,7 @@ export default function CaseStudiesPage() {
         <SectionHeading
           eyebrow="Case studies"
           title="Client stories rewritten to show challenge, approach, and outcome without the clutter."
-          body="The original site had strong proof seeds. These case-study pages turn them into more credible, easier-to-scan trust assets."
+          body="These stories help buyers see what Seamless VA actually improves: cleaner workflows, steadier follow-through, and more room for leadership to stay focused."
         />
         <div className="mt-8 grid gap-5 lg:grid-cols-3">
           {caseStudies.map((study) => (

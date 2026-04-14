@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { SectionHeading } from "@/components/site-shell";
 import { createPageMetadata } from "@/lib/metadata";
-import { testimonials } from "@/lib/site-data";
+import { reviewThemes, testimonials } from "@/lib/site-data";
 
 export const metadata: Metadata = createPageMetadata({
   title: "Reviews",
@@ -17,7 +17,7 @@ export default function ReviewsPage() {
         <SectionHeading
           eyebrow="Proof and reviews"
           title="Trust signals built around process quality, not empty superlatives."
-          body="The live site had proof, but it was buried. This page gives reviews and trust language a dedicated surface so buyers can evaluate fit faster."
+          body="Buyers usually want proof that support will be dependable, easy to work with, and strong enough to reduce founder cleanup. This page is built for that conversation."
         />
         <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
           {testimonials.map((testimonial) => (
@@ -43,18 +43,20 @@ export default function ReviewsPage() {
           <p className="text-sm font-semibold uppercase tracking-[0.16em] text-[var(--color-coral)]">
             Why this matters
           </p>
-          <div className="content-copy mt-4 space-y-4 text-sm">
-            <p>
-              For a service business, credibility is built through consistency,
-              clarity, and proof that support can be trusted with real operating
-              work.
-            </p>
-            <p>
-              This rebuild deliberately avoids inflated counters and vague
-              authority claims. Instead, it leans on concrete service scope,
-              named workflows, and client stories that explain how the work
-              helped.
-            </p>
+          <div className="mt-5 grid gap-4 md:grid-cols-3">
+            {reviewThemes.map((theme) => (
+              <div
+                key={theme.title}
+                className="rounded-[1.4rem] border border-[rgba(31,44,45,0.08)] bg-white p-5"
+              >
+                <h2 className="text-lg font-semibold text-[var(--color-ink)]">
+                  {theme.title}
+                </h2>
+                <p className="mt-3 text-sm leading-7 text-[var(--color-slate)]">
+                  {theme.body}
+                </p>
+              </div>
+            ))}
           </div>
         </div>
       </div>

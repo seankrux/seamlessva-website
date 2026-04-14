@@ -5,6 +5,7 @@ import {
   caseStudies,
   company,
   faqs,
+  goodFitSignals,
   processSteps,
   services,
   testimonials,
@@ -18,6 +19,12 @@ export const metadata: Metadata = createPageMetadata({
 });
 
 export default function Home() {
+  const quickFacts = [
+    "Free 30-minute consultation",
+    "Mississauga, Ontario-based support team",
+    "Admin, bookkeeping, and growth execution in one operating lane",
+  ];
+
   const organizationSchema = {
     "@context": "https://schema.org",
     "@type": "Organization",
@@ -34,11 +41,48 @@ export default function Home() {
     sameAs: company.socials.map((social) => social.href),
   };
 
+  const professionalServiceSchema = {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    name: company.name,
+    url: company.siteUrl,
+    email: company.email,
+    telephone: company.phone,
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: "268 Hillside Dr",
+      addressLocality: "Mississauga",
+      addressRegion: "Ontario",
+      addressCountry: "Canada",
+    },
+    areaServed: ["Canada", "United States"],
+    serviceType: services.map((service) => service.title),
+  };
+
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqs.map((faq) => ({
+      "@type": "Question",
+      name: faq.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: faq.answer,
+      },
+    })),
+  };
+
   return (
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify([
+            organizationSchema,
+            professionalServiceSchema,
+            faqSchema,
+          ]),
+        }}
       />
 
       <section className="pb-12 pt-10 md:pb-18 md:pt-20">
@@ -71,11 +115,7 @@ export default function Home() {
               </Link>
             </div>
             <div className="grid gap-4 md:grid-cols-3">
-              {[
-                "Direct founder collaboration from kickoff to handoff",
-                "Operational coverage across admin, finance, and marketing",
-                "Clean onboarding process designed for fast delegation",
-              ].map((item) => (
+              {quickFacts.map((item) => (
                 <div
                   key={item}
                   className="rounded-[1.6rem] border border-[rgba(31,44,45,0.08)] bg-[rgba(255,253,248,0.84)] px-5 py-4 text-sm leading-6 text-[var(--color-slate)] shadow-[0_12px_30px_rgba(31,44,45,0.05)]"
@@ -122,6 +162,35 @@ export default function Home() {
         </div>
       </section>
 
+      <section className="pb-14">
+        <div className="section-shell">
+          <SectionHeading
+            eyebrow="When to bring us in"
+            title="The best fit is a growing business with real demand and an operating layer that needs more follow-through."
+            body="Seamless VA works best for founder-led teams that need dependable support, clearer ownership, and less day-to-day operational drag."
+          />
+          <div className="mt-8 grid gap-5 lg:grid-cols-3">
+            {goodFitSignals.map((signal, index) => (
+              <article
+                key={signal.title}
+                className="section-card rounded-[1.8rem] p-6 fade-rise"
+                style={{ animationDelay: `${index * 90}ms` }}
+              >
+                <p className="text-sm font-semibold uppercase tracking-[0.16em] text-[var(--color-coral)]">
+                  Good fit
+                </p>
+                <h2 className="mt-3 text-2xl font-semibold text-[var(--color-ink)]">
+                  {signal.title}
+                </h2>
+                <p className="mt-4 text-sm leading-7 text-[var(--color-slate)]">
+                  {signal.body}
+                </p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <section className="pb-12">
         <div className="section-shell section-card rounded-[2rem] px-6 py-8 md:px-10">
           <p className="text-sm font-semibold uppercase tracking-[0.18em] text-[var(--color-teal-dark)]">
@@ -145,7 +214,7 @@ export default function Home() {
           <SectionHeading
             eyebrow="Core services"
             title="A lean support model built around the work that actually steals your week."
-            body="The live site had the right service categories but buried them under repeated copy. This version puts the offer structure, outcomes, and next action above the fold."
+            body="Each service is scoped to reduce founder interruption, tighten handoffs, and give the business a steadier operating rhythm."
           />
           <div className="mt-8 grid gap-5 lg:grid-cols-3">
             {services.map((service, index) => (
@@ -192,8 +261,8 @@ export default function Home() {
               instead of risky.
             </h2>
             <p className="mt-4 text-sm leading-7 text-[var(--color-slate)]">
-              The live site had the right sequence. This version makes each step
-              concrete, expectation-setting, and easier to buy into.
+              First we map the work that keeps pulling leadership backward, then
+              we align the workflow, and only then do we hand off execution.
             </p>
           </div>
           <div className="grid gap-4">
@@ -229,7 +298,7 @@ export default function Home() {
           <SectionHeading
             eyebrow="Client spotlight"
             title="Proof translated into cleaner case studies."
-            body="The existing site names strong client stories but makes them hard to scan. These pages turn them into clearer proof assets for both trust and conversion."
+            body="These examples show how support translates into better follow-through, cleaner communication, and less operational drag."
           />
           <div className="mt-8 grid gap-5 lg:grid-cols-3">
             {caseStudies.map((study) => (
@@ -272,7 +341,7 @@ export default function Home() {
             <SectionHeading
               eyebrow="Reviews and trust"
               title="Support that feels like part of the team, not a black box."
-              body="Better E-E-A-T starts with clear claims, visible operating principles, and testimonials that explain how the work actually felt."
+              body="Trust grows when buyers can see how the work feels in practice: clear communication, dependable ownership, and less cleanup landing back on leadership."
             />
           </div>
           <div className="grid gap-4">
@@ -344,9 +413,9 @@ export default function Home() {
                   We’ll help turn it into a cleaner operating rhythm.
                 </h2>
                 <p className="mt-4 max-w-2xl text-sm leading-7 text-[rgba(255,255,255,0.78)]">
-                  Start with a 30-minute consultation, outline the work you need
-                  off your plate, and leave with a practical next step instead of
-                  another vague promise.
+                  Start with a free 30-minute consultation, outline the work you
+                  need off your plate, and leave with a clear next step for support,
+                  systems cleanup, or both.
                 </p>
               </div>
               <div className="flex flex-col gap-3 sm:flex-row lg:justify-end">

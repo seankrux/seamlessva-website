@@ -11,13 +11,19 @@ export const metadata: Metadata = createPageMetadata({
 });
 
 export default function ContactPage() {
+  const consultationHighlights = [
+    "Free 30-minute consultation",
+    "Clear first-step recommendation",
+    "Admin, bookkeeping, and growth support alignment",
+  ];
+
   return (
     <section className="pb-20 pt-10 md:pt-16">
       <div className="section-shell space-y-8">
         <SectionHeading
           eyebrow="Contact"
           title="Start with a practical conversation about what needs to move off your plate first."
-          body="This page is designed as the primary conversion path: clear contact methods, clear expectations, and a transparent onboarding sequence."
+          body="The first call is built to clarify scope, surface the real bottlenecks, and decide whether you need support, systems cleanup, or both."
         />
 
         <div className="grid gap-6 lg:grid-cols-[0.92fr_1.08fr]">
@@ -48,6 +54,16 @@ export default function ContactPage() {
                 Call {company.phone}
               </a>
             </div>
+            <div className="mt-6 flex flex-wrap gap-3">
+              {consultationHighlights.map((item) => (
+                <span
+                  key={item}
+                  className="rounded-full border border-[rgba(31,44,45,0.1)] bg-white px-4 py-2 text-sm font-medium text-[var(--color-slate)]"
+                >
+                  {item}
+                </span>
+              ))}
+            </div>
           </article>
 
           <article className="section-card rounded-[1.8rem] p-6">
@@ -55,10 +71,22 @@ export default function ContactPage() {
               What the first call covers
             </p>
             <ul className="mt-5 space-y-4 text-sm leading-7 text-[var(--color-slate)]">
-              <li>• Where your team is losing time to operational spillover</li>
-              <li>• Which work needs immediate support versus process cleanup first</li>
-              <li>• The tools, communication expectations, and reporting rhythm that will matter most</li>
-              <li>• What the first 30 days should accomplish if we move forward</li>
+              <li className="flex gap-3">
+                <span className="mt-2 h-2.5 w-2.5 rounded-full bg-[var(--color-gold)]" />
+                <span>Where your team is losing time to operational spillover</span>
+              </li>
+              <li className="flex gap-3">
+                <span className="mt-2 h-2.5 w-2.5 rounded-full bg-[var(--color-gold)]" />
+                <span>Which work needs immediate support versus process cleanup first</span>
+              </li>
+              <li className="flex gap-3">
+                <span className="mt-2 h-2.5 w-2.5 rounded-full bg-[var(--color-gold)]" />
+                <span>The tools, communication expectations, and reporting rhythm that will matter most</span>
+              </li>
+              <li className="flex gap-3">
+                <span className="mt-2 h-2.5 w-2.5 rounded-full bg-[var(--color-gold)]" />
+                <span>What the first 30 days should accomplish if we move forward</span>
+              </li>
             </ul>
             <div className="mt-8 grid gap-4">
               {processSteps.map((step, index) => (

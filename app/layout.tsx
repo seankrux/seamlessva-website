@@ -23,6 +23,36 @@ export const metadata: Metadata = {
   },
   description:
     "Seamless VA helps founders and lean teams offload admin, bookkeeping, and growth operations with a conversion-focused support model.",
+  applicationName: company.name,
+  authors: [{ name: company.name }],
+  creator: company.name,
+  publisher: company.name,
+  keywords: [
+    "virtual assistant services",
+    "bookkeeping support",
+    "operations support",
+    "executive assistant support",
+    "digital marketing support",
+    "Mississauga virtual assistant",
+  ],
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    title: "Seamless VA | Operational support that keeps growth moving",
+    description:
+      "Seamless VA helps founders and lean teams offload admin, bookkeeping, and growth operations with a conversion-focused support model.",
+    url: "/",
+    siteName: company.name,
+    locale: "en_CA",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Seamless VA | Operational support that keeps growth moving",
+    description:
+      "Seamless VA helps founders and lean teams offload admin, bookkeeping, and growth operations with a conversion-focused support model.",
+  },
 };
 
 export default function RootLayout({

@@ -30,5 +30,10 @@ export function createPageMetadata({
       locale: "en_CA",
       type: "website",
     },
+    twitter: {
+      card: "summary_large_image",
+      title: openGraphTitle,
+      description,
+    },
   };
 }

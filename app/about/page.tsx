@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { SectionHeading } from "@/components/site-shell";
 import { createPageMetadata } from "@/lib/metadata";
-import { company } from "@/lib/site-data";
+import { company, operatingPrinciples } from "@/lib/site-data";
 
 export const metadata: Metadata = createPageMetadata({
   title: "About",
@@ -17,7 +17,7 @@ export default function AboutPage() {
         <SectionHeading
           eyebrow="About Seamless VA"
           title="Support designed for businesses that need a steadier operating rhythm."
-          body="The strongest E-E-A-T improvement here is simple: explain how the team works, what they value, and what a client can actually expect after they say yes."
+          body="Seamless VA supports founder-led teams that need steadier execution, cleaner communication, and a more reliable way to hand work over."
         />
         <div className="grid gap-6 lg:grid-cols-[1fr_1fr]">
           <article className="section-card rounded-[1.8rem] p-6">
@@ -48,6 +48,22 @@ export default function AboutPage() {
               <li>• Visibility into what is owned, what is pending, and what comes next</li>
             </ul>
           </article>
+        </div>
+
+        <div className="grid gap-5 lg:grid-cols-3">
+          {operatingPrinciples.map((principle) => (
+            <article key={principle.title} className="section-card rounded-[1.8rem] p-6">
+              <p className="text-sm font-semibold uppercase tracking-[0.16em] text-[var(--color-coral)]">
+                How we work
+              </p>
+              <h2 className="mt-3 text-2xl font-semibold text-[var(--color-ink)]">
+                {principle.title}
+              </h2>
+              <p className="mt-4 text-sm leading-7 text-[var(--color-slate)]">
+                {principle.body}
+              </p>
+            </article>
+          ))}
         </div>
 
         <article className="section-card rounded-[1.8rem] p-6">
