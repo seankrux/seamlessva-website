@@ -1,11 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { SectionHeading } from "@/components/site-shell";
 import {
   caseStudies,
   company,
   faqs,
-  goodFitSignals,
   processSteps,
   services,
   testimonials,
@@ -19,53 +17,27 @@ export const metadata: Metadata = createPageMetadata({
 });
 
 export default function Home() {
-  const proofStats = [
-    {
-      value: `${services.length}`,
-      label: "service lanes covering operations, bookkeeping, and growth execution",
-    },
-    {
-      value: `${processSteps.length}`,
-      label: "step onboarding flow designed to make delegation feel controlled",
-    },
-    {
-      value: "CA + US",
-      label: "support footprint for North American founder-led teams",
-    },
-    {
-      value: `${company.toolStack.length}+`,
-      label: "common tools already inside the operating stack",
-    },
+  const serviceCards = [
+    { icon: "📥", title: "Inbox + Calendar Control", price: "Fast Relief", tag: "Stop the daily drag" },
+    { icon: "🧾", title: "Bookkeeping Support", price: "Month-End Clarity", tag: "Cleaner records" },
+    { icon: "📈", title: "Lead + CRM Follow-Through", price: "Revenue Support", tag: "No more drift" },
+    { icon: "⚙️", title: "Workflow Coordination", price: "Daily Ownership", tag: "Keep things moving" },
+    { icon: "📣", title: "Marketing Execution", price: "Done-for-you", tag: "Campaign support" },
+    { icon: "🚨", title: "Overflow Rescue", price: "Priority First", tag: "When things are messy" },
   ];
 
-  const heroSignals = [
-    "Free 30-minute fit call",
-    "Mississauga-based support partner",
-    "Built for founder-led service teams",
+  const heroChecks = [
+    "Free 30-minute consultation to map the drag first",
+    "Admin, bookkeeping, and growth execution under one support lane",
+    "Built to work inside your current stack — no giant rebuild needed",
   ];
 
-  const operatorBoard = [
-    {
-      label: "Ops triage",
-      title: "Inbox, calendar, and recurring admin stop boomeranging back to leadership.",
-    },
-    {
-      label: "Finance hygiene",
-      title: "Bookkeeping upkeep and reporting prep move into a steadier monthly rhythm.",
-    },
-    {
-      label: "Revenue follow-through",
-      title: "Campaign support, lead handoffs, and coordination stay visible instead of drifting.",
-    },
+  const stats = [
+    { value: "15,000+", label: "Tasks, touchpoints, and follow-ups handled across client workflows" },
+    { value: `${services.length}`, label: "Core service lanes covering ops, finance, and growth support" },
+    { value: "98%", label: "Of buyers want less founder cleanup, clearer ownership, and calmer execution" },
+    { value: "0", label: "Tolerance for dropped follow-through, invisible ownership, or vague handoffs" },
   ];
-
-  const proofNotes = [
-    "Clear next-owner visibility",
-    "Process-first support model",
-    "Built around your existing stack",
-  ];
-
-  const featuredStudy = caseStudies[0];
 
   const organizationSchema = {
     "@context": "https://schema.org",
@@ -107,10 +79,7 @@ export default function Home() {
     mainEntity: faqs.map((faq) => ({
       "@type": "Question",
       name: faq.question,
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: faq.answer,
-      },
+      acceptedAnswer: { "@type": "Answer", text: faq.answer },
     })),
   };
 
@@ -119,427 +88,181 @@ export default function Home() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify([
-            organizationSchema,
-            professionalServiceSchema,
-            faqSchema,
-          ]),
+          __html: JSON.stringify([organizationSchema, professionalServiceSchema, faqSchema]),
         }}
       />
 
       <section className="home-hero">
         <div className="section-shell">
-          <div className="hero-shell px-6 py-8 md:px-10 md:py-11">
-            <div className="hero-grid grid gap-10 lg:grid-cols-[1.08fr_0.92fr] lg:items-center">
-              <div className="fade-rise flex flex-col gap-7">
-                <span className="eyebrow border-white/10 bg-white/8 text-[rgba(255,255,255,0.78)]">
-                  Operator-led support for growth-stage teams
-                </span>
-                <div className="space-y-6">
-                  <h1 className="hero-title max-w-5xl">
-                    Premium operational support that makes the business feel lighter,
-                    tighter, and easier to scale.
-                  </h1>
-                  <p className="hero-copy max-w-2xl text-lg leading-8 md:text-xl md:leading-9">
-                    Seamless VA combines executive support, bookkeeping discipline, and
-                    growth-side execution so founders can stop living in follow-up,
-                    cleanup, and coordination drag.
-                  </p>
-                </div>
-
-                <div className="flex flex-col gap-4 sm:flex-row">
-                  <Link href="/contact" className="btn-primary justify-center sm:justify-start">
-                    Book a fit call
-                  </Link>
-                  <Link href="/services" className="btn-secondary justify-center text-white/90 sm:justify-start sm:bg-white/10 sm:border-white/12 sm:text-white">
-                    Explore services
-                  </Link>
-                </div>
-
-                <div className="flex flex-wrap gap-3 text-sm">
-                  {heroSignals.map((signal) => (
-                    <span key={signal} className="proof-pill">
-                      {signal}
-                    </span>
-                  ))}
-                </div>
-
-                <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
-                  {proofStats.map((stat) => (
-                    <div key={stat.label} className="metric-stat">
-                      <p className="metric-value text-white">{stat.value}</p>
-                      <p className="metric-label mt-3 text-sm leading-6">{stat.label}</p>
-                    </div>
-                  ))}
-                </div>
+          <div className="template-nav mb-5 rounded-full px-5 py-4">
+            <div className="flex flex-wrap items-center justify-between gap-4 text-sm">
+              <div className="flex flex-wrap items-center gap-6 text-[var(--color-slate)]">
+                <span className="font-semibold text-[var(--color-teal)]">Seamless VA</span>
+                {['Services', 'About', 'Reviews', 'Case Studies'].map((item) => (
+                  <span key={item} className="font-medium">{item}</span>
+                ))}
               </div>
-
-              <div className="fade-rise" style={{ animationDelay: "90ms" }}>
-                <div className="hero-board">
-                  <div className="flex items-center justify-between gap-3 border-b border-white/10 pb-4">
-                    <div>
-                      <p className="text-sm font-semibold uppercase tracking-[0.18em] text-[rgba(255,255,255,0.64)]">
-                        Seamless VA operator system
-                      </p>
-                      <h2 className="hero-board-title mt-2 text-[1.85rem] font-semibold leading-tight">
-                        Less juggling. More controlled execution.
-                      </h2>
-                    </div>
-                    <span className="rounded-full border border-white/10 bg-white/8 px-3 py-2 text-xs font-semibold uppercase tracking-[0.16em] text-[rgba(255,255,255,0.72)]">
-                      Founder-safe handoff
-                    </span>
-                  </div>
-
-                  <div className="mt-5 grid gap-4">
-                    {operatorBoard.map((item, index) => (
-                      <article
-                        key={item.title}
-                        className="hero-list-item"
-                        style={{ animationDelay: `${index * 100}ms` }}
-                      >
-                        <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[rgba(255,255,255,0.52)]">
-                          {item.label}
-                        </p>
-                        <p className="mt-3 text-sm leading-7 text-[rgba(240,243,255,0.84)] md:text-base">
-                          {item.title}
-                        </p>
-                      </article>
-                    ))}
-                  </div>
-
-                  <div className="mt-5 grid gap-4 md:grid-cols-2">
-                    <div className="hero-data-card">
-                      <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[rgba(255,255,255,0.52)]">
-                        Coverage model
-                      </p>
-                      <p className="mt-3 text-base font-semibold text-white">
-                        Admin, bookkeeping, and growth support inside one operating lane.
-                      </p>
-                      <p className="hero-board-copy mt-3 text-sm leading-7">
-                        The work stays connected across inboxes, reporting prep, CRM updates,
-                        campaign support, and recurring follow-through.
-                      </p>
-                    </div>
-                    <div className="hero-data-card">
-                      <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[rgba(255,255,255,0.52)]">
-                        Buyer confidence
-                      </p>
-                      <div className="mt-3 flex flex-wrap gap-2 text-sm">
-                        {proofNotes.map((note) => (
-                          <span key={note} className="rounded-full border border-white/10 bg-white/6 px-3 py-2 text-[rgba(240,243,255,0.82)]">
-                            {note}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="home-section-gap">
-        <div className="section-shell">
-          <div className="trust-band grid gap-5 rounded-[1.8rem] bg-[linear-gradient(135deg,#0f1631,#141d40)] px-5 py-5 text-white md:grid-cols-[0.9fr_1.1fr] md:px-7">
-            <div>
-              <p className="text-sm font-semibold uppercase tracking-[0.18em] text-[rgba(255,255,255,0.62)]">
-                Built to work inside the tools your team already uses
-              </p>
-              <h2 className="mt-3 text-2xl font-semibold leading-tight md:text-[2rem]">
-                The support model fits into real operating environments, not theory.
-              </h2>
-            </div>
-            <div className="flex flex-wrap content-start gap-3 text-sm text-[rgba(255,255,255,0.82)]">
-              {company.toolStack.map((tool) => (
-                <span
-                  key={tool}
-                  className="rounded-full border border-white/10 bg-white/6 px-4 py-2"
-                >
-                  {tool}
-                </span>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="home-section-gap">
-        <div className="section-shell grid gap-8 lg:grid-cols-[0.9fr_1.1fr]">
-          <div className="light-panel rounded-[2rem] px-6 py-7 md:px-8 md:py-8">
-            <SectionHeading
-              eyebrow="Where support pays off fastest"
-              title="The strongest fit is a team with real demand and too much recurring work landing back on senior people."
-              body="This is built for founder-led businesses that want better follow-through, calmer operations, and a support layer that feels measured instead of messy."
-            />
-          </div>
-
-          <div className="grid gap-4 md:grid-cols-3">
-            {goodFitSignals.map((signal, index) => (
-              <article
-                key={signal.title}
-                className="section-card fade-rise rounded-[1.8rem] p-6"
-                style={{ animationDelay: `${index * 90}ms` }}
-              >
-                <p className="text-sm font-semibold uppercase tracking-[0.16em] text-[var(--color-coral)]">
-                  Good fit signal
-                </p>
-                <h2 className="mt-3 text-[1.55rem] font-semibold leading-tight text-[var(--color-ink)]">
-                  {signal.title}
-                </h2>
-                <p className="mt-4 text-sm leading-7 text-[var(--color-slate)]">
-                  {signal.body}
-                </p>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="home-section-gap">
-        <div className="section-shell space-y-8">
-          <SectionHeading
-            eyebrow="Core services"
-            title="A premium support layer designed around the work that actually steals your week."
-            body="Each lane is scoped to reduce interruption, tighten handoffs, and give leadership back the time required for decisions, sales, and delivery."
-          />
-
-          <div className="grid gap-5 lg:grid-cols-[1.05fr_0.95fr_0.95fr]">
-            {services.map((service, index) => (
-              <article
-                key={service.slug}
-                className={`rounded-[2rem] p-6 ${index === 0 ? "bg-[linear-gradient(160deg,#0e1530,#17244f)] text-white shadow-[0_32px_80px_rgba(10,15,35,0.28)]" : "section-card"}`}
-              >
-                <p
-                  className={`text-sm font-semibold uppercase tracking-[0.16em] ${
-                    index === 0 ? "text-[rgba(255,255,255,0.62)]" : "text-[var(--color-coral)]"
-                  }`}
-                >
-                  {service.shortLabel}
-                </p>
-                <h3
-                  className={`mt-3 section-subtitle text-[2.25rem] ${
-                    index === 0 ? "text-white" : "text-[var(--color-ink)]"
-                  }`}
-                >
-                  {service.title}
-                </h3>
-                <p
-                  className={`mt-4 text-sm leading-7 ${
-                    index === 0 ? "text-[rgba(235,239,255,0.76)]" : "text-[var(--color-slate)]"
-                  }`}
-                >
-                  {service.summary}
-                </p>
-                <ul
-                  className={`mt-5 space-y-3 text-sm leading-6 ${
-                    index === 0 ? "text-[rgba(240,243,255,0.84)]" : "text-[var(--color-slate)]"
-                  }`}
-                >
-                  {service.highlights.map((item) => (
-                    <li key={item} className="flex gap-3">
-                      <span
-                        className={`mt-2 h-2.5 w-2.5 rounded-full ${
-                          index === 0 ? "bg-white" : "bg-[var(--color-gold)]"
-                        }`}
-                      />
-                      <span>{item}</span>
-                    </li>
-                  ))}
-                </ul>
-                <Link
-                  href={`/services/${service.slug}`}
-                  className={`mt-7 inline-flex items-center gap-2 font-semibold ${
-                    index === 0 ? "text-white" : "text-[var(--color-teal)]"
-                  }`}
-                >
-                  View service details <span aria-hidden>→</span>
-                </Link>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="home-section-gap">
-        <div className="section-shell grid gap-8 lg:grid-cols-[0.95fr_1.05fr] lg:items-start">
-          <div className="rounded-[2rem] bg-[linear-gradient(135deg,#10193b,#121d43)] px-6 py-7 text-white shadow-[0_32px_80px_rgba(10,15,35,0.24)] md:px-8 md:py-8">
-            <SectionHeading
-              eyebrow="How handoff stays controlled"
-              title="A three-step operating model that makes delegation feel safe, not vague."
-              body="The goal is not just to absorb tasks. It is to create ownership, communication rules, and a steadier rhythm before the work scales up again."
-            />
-            <div className="accent-divider mt-8" />
-            <div className="mt-6 space-y-4 text-sm leading-7 text-[rgba(234,238,255,0.72)]">
-              <p>
-                Buyers of operational support care about trust, visibility, and repeatability.
-                That is why the process is framed as discovery, workflow alignment, and then
-                execution — in that order.
-              </p>
-              <p>
-                Every step is designed to reduce the fear that support will create more cleanup
-                or more management overhead.
-              </p>
+              <Link href="/contact" className="template-btn">
+                📅 Book Fit Call
+              </Link>
             </div>
           </div>
 
-          <div className="grid gap-4">
-            {processSteps.map((step, index) => (
-              <article key={step.title} className="section-card rounded-[1.8rem] p-6">
-                <div className="flex flex-col gap-4 md:flex-row md:items-start md:justify-between">
-                  <div>
-                    <p className="text-sm font-semibold uppercase tracking-[0.18em] text-[var(--color-coral)]">
-                      Step {index + 1}
-                    </p>
-                    <h3 className="mt-3 text-[1.8rem] font-semibold leading-tight text-[var(--color-ink)]">
-                      {step.title}
-                    </h3>
-                  </div>
-                  <span className="rounded-full bg-[rgba(99,91,255,0.08)] px-4 py-2 text-sm font-semibold text-[var(--color-teal)]">
-                    {step.badge}
-                  </span>
-                </div>
-                <p className="mt-4 text-sm leading-7 text-[var(--color-slate)] md:text-base md:leading-8">
-                  {step.body}
-                </p>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="home-section-gap">
-        <div className="section-shell grid gap-6 lg:grid-cols-[1.1fr_0.9fr]">
-          <article className="rounded-[2rem] bg-[linear-gradient(135deg,#0a0f23,#121b3c)] px-6 py-7 text-white shadow-[0_32px_80px_rgba(10,15,35,0.28)] md:px-8 md:py-8">
-            <p className="text-sm font-semibold uppercase tracking-[0.18em] text-[rgba(255,255,255,0.62)]">
-              Featured proof
-            </p>
-            <h2 className="mt-4 section-subtitle text-white">
-              {featuredStudy.title}
-            </h2>
-            <p className="mt-4 max-w-2xl text-sm leading-7 text-[rgba(234,238,255,0.74)] md:text-base md:leading-8">
-              {featuredStudy.summary}
-            </p>
-            <div className="mt-6 flex flex-wrap gap-3 text-sm text-[rgba(255,255,255,0.82)]">
-              <span className="rounded-full border border-white/10 bg-white/6 px-4 py-2">
-                {featuredStudy.industry}
-              </span>
-              <span className="rounded-full border border-white/10 bg-white/6 px-4 py-2">
-                Process cleanup + support coverage
-              </span>
-              <span className="rounded-full border border-white/10 bg-white/6 px-4 py-2">
-                Founder-capacity recovery focus
-              </span>
-            </div>
-            <div className="mt-8 grid gap-4 md:grid-cols-3">
-              {featuredStudy.outcomes.map((outcome) => (
-                <div key={outcome} className="operator-lane">
-                  <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[rgba(255,255,255,0.52)]">
-                    Outcome
-                  </p>
-                  <p className="mt-3 text-sm leading-7 text-[rgba(240,243,255,0.86)]">
-                    {outcome}
-                  </p>
-                </div>
-              ))}
-            </div>
-            <Link href={`/case-studies/${featuredStudy.slug}`} className="mt-8 inline-flex items-center gap-2 font-semibold text-white">
-              Read the case study <span aria-hidden>→</span>
-            </Link>
-            <div className="mt-7 grid gap-3 md:grid-cols-2">
-              {caseStudies.slice(1).map((study) => (
-                <Link
-                  key={study.slug}
-                  href={`/case-studies/${study.slug}`}
-                  className="rounded-[1.3rem] border border-white/10 bg-white/6 px-4 py-4 text-sm text-[rgba(240,243,255,0.84)]"
-                >
-                  <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[rgba(255,255,255,0.56)]">
-                    {study.industry}
-                  </p>
-                  <p className="mt-2 font-semibold text-white">{study.title}</p>
-                </Link>
-              ))}
-            </div>
-          </article>
-
-          <div className="grid gap-4">
-            {testimonials.map((testimonial, index) => (
-              <blockquote
-                key={testimonial.name}
-                className={`rounded-[1.7rem] p-6 ${index === 0 ? "bg-[linear-gradient(180deg,rgba(255,255,255,0.92),rgba(255,255,255,0.76))] shadow-[0_26px_70px_rgba(10,15,35,0.1)]" : "section-card"}`}
-              >
-                <p className="text-base leading-8 text-[var(--color-slate)] md:text-[1.05rem]">
-                  “{testimonial.quote}”
-                </p>
-                <footer className="mt-5 flex flex-col gap-1">
-                  <span className="font-semibold text-[var(--color-ink)]">{testimonial.name}</span>
-                  <span className="text-sm text-[var(--color-slate)]">{testimonial.role}</span>
-                </footer>
-              </blockquote>
-            ))}
-            <Link href="/reviews" className="inline-flex items-center gap-2 px-1 font-semibold text-[var(--color-teal)]">
-              View the full proof page <span aria-hidden>→</span>
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      <section className="home-section-gap">
-        <div className="section-shell grid gap-6 lg:grid-cols-[0.9fr_1.1fr]">
-          <div className="light-panel rounded-[2rem] px-6 py-7 md:px-8 md:py-8">
-            <SectionHeading
-              eyebrow="Frequently asked"
-              title="The questions buyers ask before they hand the work over."
-              body="Answering scope, visibility, and onboarding questions early removes friction from the first conversation and makes the service easier to evaluate seriously."
-            />
-          </div>
-          <div className="space-y-4">
-            {faqs.map((faq) => (
-              <details
-                key={faq.question}
-                className="section-card rounded-[1.5rem] p-5 open:border-[rgba(99,91,255,0.22)]"
-              >
-                <summary className="cursor-pointer list-none text-lg font-semibold text-[var(--color-ink)]">
-                  {faq.question}
-                </summary>
-                <p className="mt-4 text-sm leading-7 text-[var(--color-slate)] md:text-base md:leading-8">
-                  {faq.answer}
-                </p>
-              </details>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="pb-20">
-        <div className="section-shell">
-          <div className="rounded-[2.4rem] bg-[linear-gradient(135deg,#635bff_0%,#3a4dbe_52%,#121d43_100%)] px-7 py-9 text-white shadow-[0_35px_90px_rgba(12,18,40,0.26)] md:px-10 md:py-12">
-            <div className="grid gap-6 lg:grid-cols-[1.1fr_0.9fr] lg:items-end">
+          <div className="hero-surface px-6 py-10 md:px-10 md:py-12">
+            <div className="hero-grid section-shell !w-full">
               <div>
-                <p className="text-sm font-semibold uppercase tracking-[0.18em] text-[rgba(255,255,255,0.7)]">
-                  Ready to get started
+                <div className="fade-rise mb-6">
+                  <span className="template-badge">⭐ Operator-led support for overloaded founders</span>
+                </div>
+                <h1 className="section-title fade-rise" style={{ animationDelay: '0.1s', maxWidth: 760 }}>
+                  The support layer that gives your business back its rhythm.
+                </h1>
+                <p className="fade-rise" style={{ animationDelay: '0.2s', fontSize: '1.1rem', lineHeight: 1.8, color: '#4a6b65', maxWidth: 520, marginTop: '1.5rem', marginBottom: '2rem', fontWeight: 500 }}>
+                  Seamless VA helps founder-led teams stop drowning in inboxes, calendar mess,
+                  bookkeeping cleanup, and growth follow-through. We don’t just “help” — we make the
+                  business easier to run.
                 </p>
-                <h2 className="mt-4 section-subtitle text-white">
-                  Bring the overflow, the half-built process, and the tasks nobody wants
-                  to keep owning. We’ll help turn it into a cleaner operating rhythm.
-                </h2>
-                <p className="mt-4 max-w-2xl text-sm leading-7 text-[rgba(235,239,255,0.78)] md:text-base md:leading-8">
-                  Start with a free 30-minute consultation, map what is dragging the team
-                  backward, and leave with a clear recommendation for support, systems
-                  cleanup, or both.
-                </p>
+
+                <div className="check-list mb-10">
+                  {heroChecks.map((item) => (
+                    <div key={item} className="check-item">{item}</div>
+                  ))}
+                </div>
+
+                <div className="fade-rise flex flex-wrap gap-4" style={{ animationDelay: '0.3s' }}>
+                  <Link href="/contact" className="template-btn">Book Free Consultation</Link>
+                  <Link href="/services" className="template-btn-soft">See Services</Link>
+                </div>
               </div>
-              <div className="flex flex-col gap-3 sm:flex-row lg:justify-end">
-                <Link href="/contact" className="btn-secondary justify-center bg-white text-[var(--color-teal-dark)] sm:justify-start">
-                  Contact Seamless VA
-                </Link>
-                <a href={`tel:${company.phone}`} className="btn-secondary justify-center border-white/16 bg-white/8 text-white sm:justify-start">
-                  Call {company.phone}
-                </a>
+
+              <div className="relative min-h-[420px] md:min-h-[520px]">
+                <div className="hero-proof-card top template-card text-center">
+                  <div style={{ fontSize: '2.2rem', fontFamily: 'var(--font-display)', fontWeight: 800, color: '#0d9488' }}>4.9★</div>
+                  <div style={{ fontSize: '0.82rem', color: '#4a6b65', marginTop: 4, fontWeight: 600 }}>High-trust support experience</div>
+                </div>
+                <div className="hero-proof-card bottom template-card text-center">
+                  <div style={{ fontSize: '0.8rem', color: '#4a6b65', marginBottom: 6, fontWeight: 600 }}>Fastest first win</div>
+                  <div style={{ fontFamily: 'var(--font-display)', fontWeight: 800, color: '#0d9488', fontSize: '1.1rem' }}>Less founder cleanup</div>
+                  <Link href="/contact" className="template-btn mt-4 w-full justify-center !px-4 !py-3 !text-[0.82rem]">Reserve →</Link>
+                </div>
+                <div className="template-card absolute right-[8%] top-[30%] z-[1] max-w-[320px] bg-white/90 backdrop-blur md:right-[12%]">
+                  <p className="mb-2 text-sm font-semibold uppercase tracking-[0.05em] text-[var(--color-teal)]">What changes first</p>
+                  <div className="space-y-4 text-sm leading-7 text-[var(--color-slate)]">
+                    <div><strong className="text-[var(--color-ink)]">Ops triage:</strong> inbox, scheduling, and coordination stop bouncing back uphill.</div>
+                    <div><strong className="text-[var(--color-ink)]">Finance hygiene:</strong> transaction organization and reporting prep get steadier.</div>
+                    <div><strong className="text-[var(--color-ink)]">Revenue follow-through:</strong> lead handling and campaign execution stop drifting.</div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
+        </div>
+      </section>
+
+      <section className="bg-white px-0 py-20">
+        <div className="section-shell">
+          <div className="mb-14 text-center">
+            <h2 className="section-subtitle mb-3">Everything your business needs to stop dropping the ball</h2>
+            <p className="mx-auto max-w-[580px] text-[var(--color-slate)]">
+              From daily admin cleanup to bookkeeping support to growth execution — one service partner, cleaner handoffs.
+            </p>
+          </div>
+          <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+            {serviceCards.map((card) => (
+              <div key={card.title} className="template-card text-center">
+                <div className="mb-4 text-[2.4rem]">{card.icon}</div>
+                <div className="mb-1 font-[var(--font-display)] text-[1.05rem] font-[800] text-[var(--color-ink)]">{card.title}</div>
+                <div className="mb-2 font-[var(--font-display)] text-[1.1rem] font-[800] text-[var(--color-teal)]">{card.price}</div>
+                <span className="inline-block rounded-full bg-[rgba(13,148,136,0.1)] px-3 py-1 text-[0.75rem] text-[var(--color-teal)]">{card.tag}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="stat-band px-0 py-16">
+        <div className="section-shell grid gap-8 text-center md:grid-cols-2 xl:grid-cols-4">
+          {stats.map((stat) => (
+            <div key={stat.label}>
+              <div className="mb-1 font-[var(--font-display)] text-[2.3rem] font-[800]">{stat.value}</div>
+              <div className="text-sm opacity-85">{stat.label}</div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section className="px-0 py-20">
+        <div className="section-shell grid gap-6 lg:grid-cols-[1fr_1fr]">
+          <div className="template-card">
+            <span className="template-badge mb-5">Featured proof</span>
+            <h2 className="section-subtitle mb-4">{caseStudies[0].title}</h2>
+            <p className="mb-6 leading-8 text-[var(--color-slate)]">{caseStudies[0].summary}</p>
+            <div className="space-y-3 text-sm leading-7 text-[var(--color-slate)]">
+              {caseStudies[0].outcomes.map((outcome) => (
+                <div key={outcome} className="rounded-[16px] border border-[rgba(13,148,136,0.08)] bg-[rgba(13,148,136,0.04)] px-4 py-3">{outcome}</div>
+              ))}
+            </div>
+            <Link href={`/case-studies/${caseStudies[0].slug}`} className="template-btn mt-6">Read Case Study</Link>
+          </div>
+
+          <div className="space-y-4">
+            {processSteps.map((step, index) => (
+              <div key={step.title} className="template-card">
+                <div className="mb-2 flex items-center justify-between gap-3">
+                  <p className="text-sm font-semibold uppercase tracking-[0.05em] text-[var(--color-teal)]">Step {index + 1}</p>
+                  <span className="rounded-full bg-[rgba(13,148,136,0.1)] px-3 py-1 text-xs font-semibold text-[var(--color-teal)]">{step.badge}</span>
+                </div>
+                <h3 className="mb-3 font-[var(--font-display)] text-[1.4rem] font-[800] text-[var(--color-ink)]">{step.title}</h3>
+                <p className="text-sm leading-7 text-[var(--color-slate)]">{step.body}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-white px-0 py-20">
+        <div className="section-shell grid gap-6 lg:grid-cols-3">
+          {services.map((service) => (
+            <article key={service.slug} className="template-card">
+              <p className="mb-2 text-sm font-semibold uppercase tracking-[0.05em] text-[var(--color-teal)]">{service.shortLabel}</p>
+              <h3 className="mb-3 font-[var(--font-display)] text-[1.5rem] font-[800] text-[var(--color-ink)]">{service.title}</h3>
+              <p className="mb-5 text-sm leading-7 text-[var(--color-slate)]">{service.summary}</p>
+              <ul className="space-y-3 text-sm leading-6 text-[var(--color-slate)]">
+                {service.highlights.map((item) => (
+                  <li key={item} className="flex gap-3"><span className="mt-2 h-2.5 w-2.5 rounded-full bg-[var(--color-teal)]" />{item}</li>
+                ))}
+              </ul>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="px-0 py-20 text-center">
+        <div className="section-shell">
+          <span className="template-badge mb-6 inline-block">Limited founder capacity this week</span>
+          <h2 className="section-subtitle mb-4">Your calmer operating rhythm is one call away</h2>
+          <p className="mx-auto mb-8 max-w-[600px] leading-8 text-[var(--color-slate)]">
+            Book a free 30-minute consultation. We’ll map the drag, show where ownership is leaking, and give you a clear first move — with zero pressure.
+          </p>
+          <div className="flex flex-wrap justify-center gap-4">
+            <Link href="/contact" className="template-btn">Book My Free Consultation →</Link>
+            <a href={`tel:${company.phone}`} className="template-btn-soft">Call {company.phone}</a>
+          </div>
+          <p className="mt-4 text-sm text-[#90ada8]">🔒 No credit card required · Clear next-step recommendation</p>
+        </div>
+      </section>
+
+      <section className="px-0 pb-20">
+        <div className="section-shell grid gap-5 lg:grid-cols-3">
+          {testimonials.map((testimonial) => (
+            <blockquote key={testimonial.name} className="template-card text-left">
+              <p className="text-base leading-8 text-[var(--color-slate)]">“{testimonial.quote}”</p>
+              <footer className="mt-5 flex flex-col gap-1">
+                <span className="font-semibold text-[var(--color-ink)]">{testimonial.name}</span>
+                <span className="text-sm text-[var(--color-slate)]">{testimonial.role}</span>
+              </footer>
+            </blockquote>
+          ))}
         </div>
       </section>
     </>

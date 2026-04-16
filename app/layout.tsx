@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
-import { Fraunces, Inter } from "next/font/google";
+import { Inter, Poppins } from "next/font/google";
 import "./globals.css";
 import { SiteFooter, SiteHeader } from "@/components/site-shell";
 import { company } from "@/lib/site-data";
 
-const displayFont = Fraunces({
+const displayFont = Poppins({
   variable: "--font-display",
   subsets: ["latin"],
+  weight: ["600", "700", "800"],
   display: "swap",
 });
 
@@ -36,9 +37,7 @@ export const metadata: Metadata = {
     "digital marketing support",
     "Mississauga virtual assistant",
   ],
-  alternates: {
-    canonical: "/",
-  },
+  alternates: { canonical: "/" },
   openGraph: {
     title: "Seamless VA | Operational support that keeps growth moving",
     description:
