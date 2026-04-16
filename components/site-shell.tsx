@@ -29,7 +29,7 @@ export function SiteHeader() {
             </span>
             <div className="min-w-0">
               <p className="truncate text-[0.95rem] font-extrabold text-[var(--color-teal)]">
-                Seamless<span className="text-[var(--color-ink)]">VA</span>
+                Seamless <span className="text-[var(--color-ink)]">VA</span>
               </p>
               <p className="hidden text-sm text-[var(--color-slate)] sm:block">
                 Operational support for founders and lean teams

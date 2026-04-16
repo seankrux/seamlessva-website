@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { createPageMetadata } from "@/lib/metadata";
 import { company, processSteps } from "@/lib/site-data";
 
@@ -36,16 +37,29 @@ export default function ContactPage() {
                 ))}
               </div>
             </div>
-            <div className="template-card">
-              <h2 className="mb-4 font-[var(--font-display)] text-[1.8rem] font-[800] text-[var(--color-ink)]">Reach Seamless VA</h2>
-              <div className="space-y-4 text-sm text-[var(--color-slate)]">
-                <a href={`mailto:${company.email}`} className="link-accent">{company.email}</a>
-                <a href={`tel:${company.phone}`} className="link-accent">{company.phone}</a>
-                <p>{company.location}</p>
-              </div>
-              <div className="mt-6 space-y-3">
-                <a href={`mailto:${company.email}?subject=Seamless%20VA%20consultation`} className="template-btn w-full justify-center">Email the team</a>
-                <a href={`tel:${company.phone}`} className="template-btn-soft w-full justify-center">Call {company.phone}</a>
+            <div className="template-card overflow-hidden p-0">
+              <div className="grid gap-0 md:grid-cols-[0.95fr_1.05fr]">
+                <div className="relative min-h-[320px]">
+                  <Image
+                    src="/images/cro/asian-va-portrait.jpg"
+                    alt="Professional virtual assistant portrait"
+                    fill
+                    sizes="(max-width: 900px) 100vw, 28vw"
+                    className="object-cover"
+                  />
+                </div>
+                <div className="p-6">
+                  <h2 className="mb-4 font-[var(--font-display)] text-[1.8rem] font-[800] text-[var(--color-ink)]">Reach Seamless VA</h2>
+                  <div className="space-y-4 text-sm text-[var(--color-slate)]">
+                    <a href={`mailto:${company.email}`} className="link-accent">{company.email}</a>
+                    <a href={`tel:${company.phone}`} className="link-accent">{company.phone}</a>
+                    <p>{company.location}</p>
+                  </div>
+                  <div className="mt-6 space-y-3">
+                    <a href={`mailto:${company.email}?subject=Seamless%20VA%20consultation`} className="template-btn w-full justify-center">Email the team</a>
+                    <a href={`tel:${company.phone}`} className="template-btn-soft w-full justify-center">Call {company.phone}</a>
+                  </div>
+                </div>
               </div>
             </div>
           </div>

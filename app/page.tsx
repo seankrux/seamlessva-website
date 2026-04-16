@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import {
   caseStudies,
@@ -33,10 +34,10 @@ export default function Home() {
   ];
 
   const stats = [
-    { value: "15,000+", label: "Tasks, touchpoints, and follow-ups handled across client workflows" },
     { value: `${services.length}`, label: "Core service lanes covering ops, finance, and growth support" },
-    { value: "98%", label: "Of buyers want less founder cleanup, clearer ownership, and calmer execution" },
-    { value: "0", label: "Tolerance for dropped follow-through, invisible ownership, or vague handoffs" },
+    { value: `${processSteps.length}`, label: "Step handoff model designed to create clearer ownership" },
+    { value: "CA + US", label: "Support footprint for North American founder-led teams" },
+    { value: `${company.toolStack.length}+`, label: "Common tools already inside the operating stack" },
   ];
 
   const organizationSchema = {
@@ -135,17 +136,28 @@ export default function Home() {
                 </div>
               </div>
 
-              <div className="relative min-h-[420px] md:min-h-[520px]">
+              <div className="relative min-h-[420px] md:min-h-[560px]">
+                <div className="absolute inset-y-[10%] right-[6%] left-[10%] overflow-hidden rounded-[28px] border border-white/60 shadow-[0_20px_60px_rgba(13,148,136,0.16)]">
+                  <Image
+                    src="/images/cro/asian-va-hero.jpg"
+                    alt="Professional virtual assistant in a premium office"
+                    fill
+                    sizes="(max-width: 900px) 100vw, 40vw"
+                    className="object-cover"
+                    priority
+                  />
+                  <div className="absolute inset-0 bg-[linear-gradient(to_top,rgba(248,255,254,0.14),rgba(248,255,254,0.02))]" />
+                </div>
                 <div className="hero-proof-card top template-card text-center">
-                  <div style={{ fontSize: '2.2rem', fontFamily: 'var(--font-display)', fontWeight: 800, color: '#0d9488' }}>4.9★</div>
-                  <div style={{ fontSize: '0.82rem', color: '#4a6b65', marginTop: 4, fontWeight: 600 }}>High-trust support experience</div>
+                  <div style={{ fontSize: '2.2rem', fontFamily: 'var(--font-display)', fontWeight: 800, color: '#0d9488' }}>3 Lanes</div>
+                  <div style={{ fontSize: '0.82rem', color: '#4a6b65', marginTop: 4, fontWeight: 600 }}>Ops, bookkeeping, and growth support</div>
                 </div>
                 <div className="hero-proof-card bottom template-card text-center">
-                  <div style={{ fontSize: '0.8rem', color: '#4a6b65', marginBottom: 6, fontWeight: 600 }}>Fastest first win</div>
-                  <div style={{ fontFamily: 'var(--font-display)', fontWeight: 800, color: '#0d9488', fontSize: '1.1rem' }}>Less founder cleanup</div>
+                  <div style={{ fontSize: '0.8rem', color: '#4a6b65', marginBottom: 6, fontWeight: 600 }}>Best first move</div>
+                  <div style={{ fontFamily: 'var(--font-display)', fontWeight: 800, color: '#0d9488', fontSize: '1.1rem' }}>Map the drag first</div>
                   <Link href="/contact" className="template-btn mt-4 w-full justify-center !px-4 !py-3 !text-[0.82rem]">Reserve →</Link>
                 </div>
-                <div className="template-card absolute right-[8%] top-[30%] z-[1] max-w-[320px] bg-white/90 backdrop-blur md:right-[12%]">
+                <div className="template-card absolute right-[4%] top-[28%] z-[2] max-w-[320px] bg-white/92 backdrop-blur md:right-[8%]">
                   <p className="mb-2 text-sm font-semibold uppercase tracking-[0.05em] text-[var(--color-teal)]">What changes first</p>
                   <div className="space-y-4 text-sm leading-7 text-[var(--color-slate)]">
                     <div><strong className="text-[var(--color-ink)]">Ops triage:</strong> inbox, scheduling, and coordination stop bouncing back uphill.</div>
@@ -193,16 +205,29 @@ export default function Home() {
 
       <section className="px-0 py-20">
         <div className="section-shell grid gap-6 lg:grid-cols-[1fr_1fr]">
-          <div className="template-card">
-            <span className="template-badge mb-5">Featured proof</span>
-            <h2 className="section-subtitle mb-4">{caseStudies[0].title}</h2>
-            <p className="mb-6 leading-8 text-[var(--color-slate)]">{caseStudies[0].summary}</p>
-            <div className="space-y-3 text-sm leading-7 text-[var(--color-slate)]">
-              {caseStudies[0].outcomes.map((outcome) => (
-                <div key={outcome} className="rounded-[16px] border border-[rgba(13,148,136,0.08)] bg-[rgba(13,148,136,0.04)] px-4 py-3">{outcome}</div>
-              ))}
+          <div className="template-card overflow-hidden p-0">
+            <div className="grid gap-0 md:grid-cols-[0.9fr_1.1fr]">
+              <div className="relative min-h-[320px]">
+                <Image
+                  src="/images/cro/asian-va-work.jpg"
+                  alt="Virtual assistant working at a laptop in a premium office"
+                  fill
+                  sizes="(max-width: 900px) 100vw, 30vw"
+                  className="object-cover"
+                />
+              </div>
+              <div className="p-6 md:p-7">
+                <span className="template-badge mb-5">Featured proof</span>
+                <h2 className="section-subtitle mb-4">{caseStudies[0].title}</h2>
+                <p className="mb-6 leading-8 text-[var(--color-slate)]">{caseStudies[0].summary}</p>
+                <div className="space-y-3 text-sm leading-7 text-[var(--color-slate)]">
+                  {caseStudies[0].outcomes.map((outcome) => (
+                    <div key={outcome} className="rounded-[16px] border border-[rgba(13,148,136,0.08)] bg-[rgba(13,148,136,0.04)] px-4 py-3">{outcome}</div>
+                  ))}
+                </div>
+                <Link href={`/case-studies/${caseStudies[0].slug}`} className="template-btn mt-6">Read Case Study</Link>
+              </div>
             </div>
-            <Link href={`/case-studies/${caseStudies[0].slug}`} className="template-btn mt-6">Read Case Study</Link>
           </div>
 
           <div className="space-y-4">
