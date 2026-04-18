@@ -52,7 +52,7 @@ export default async function CaseStudyPage({ params }: PageProps) {
               </p>
             </div>
 
-            <div className="rounded-[1.8rem] border border-white/10 bg-white/6 p-5 backdrop-blur">
+            <div className="rounded-[1.8rem] border border-white/10 bg-white/6 p-5">
               <p className="text-sm font-semibold uppercase tracking-[0.18em] text-[rgba(255,255,255,0.62)]">
                 Outcome snapshot
               </p>

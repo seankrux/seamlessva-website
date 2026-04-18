@@ -14,8 +14,8 @@ export default function ReviewsPage() {
   return (
     <section className="pb-20 pt-6 md:pt-10">
       <div className="section-shell space-y-8">
-        <div className="hero-surface px-6 py-10 md:px-10 md:py-12">
-          <div className="section-shell !w-full">
+        <div className="hero-surface hero-surface-compact mx-auto max-w-[880px] px-6 py-10 md:px-10 md:py-12">
+          <div className="max-w-[760px]">
             <span className="template-badge">Proof & Reviews</span>
             <h1 className="mt-5 section-title max-w-[760px]">
               Trust signals built around process quality, not empty superlatives.
@@ -49,7 +49,10 @@ export default function ReviewsPage() {
         </div>
 
         <div className="text-center">
-          <Link href="/contact" className="template-btn">Talk Through Fit →</Link>
+          <Link href="/contact" className="template-btn">
+            <span>Talk Through Fit</span>
+            <span className="template-btn-icon" aria-hidden="true">↗</span>
+          </Link>
         </div>
       </div>
     </section>

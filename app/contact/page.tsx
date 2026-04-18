@@ -41,18 +41,18 @@ export default function ContactPage() {
               <div className="grid gap-0 md:grid-cols-[0.95fr_1.05fr]">
                 <div className="relative min-h-[320px]">
                   <Image
-                    src="/images/cro/asian-va-portrait.jpg"
+                    src="/images/cro/asian-va-portrait-2026.jpg"
                     alt="Professional virtual assistant portrait"
                     fill
                     sizes="(max-width: 900px) 100vw, 28vw"
-                    className="object-cover"
+                    className="object-cover object-top"
                   />
                 </div>
                 <div className="p-6">
                   <h2 className="mb-4 font-[var(--font-display)] text-[1.8rem] font-[800] text-[var(--color-ink)]">Reach Seamless VA</h2>
                   <div className="space-y-4 text-sm text-[var(--color-slate)]">
-                    <a href={`mailto:${company.email}`} className="link-accent">{company.email}</a>
-                    <a href={`tel:${company.phone}`} className="link-accent">{company.phone}</a>
+                    <a href={`mailto:${company.email}`} className="link-accent block">{company.email}</a>
+                    <a href={`tel:${company.phone}`} className="link-accent block">{company.phone}</a>
                     <p>{company.location}</p>
                   </div>
                   <div className="mt-6 space-y-3">

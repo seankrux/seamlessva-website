@@ -1,21 +1,26 @@
-import type { Metadata } from "next";
-import { Inter, Poppins } from "next/font/google";
+import type { Metadata, Viewport } from "next";
+import { Geist, Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 import { SiteFooter, SiteHeader } from "@/components/site-shell";
 import { company } from "@/lib/site-data";
 
-const displayFont = Poppins({
+const displayFont = Plus_Jakarta_Sans({
   variable: "--font-display",
   subsets: ["latin"],
   weight: ["600", "700", "800"],
   display: "swap",
 });
 
-const bodyFont = Inter({
+const bodyFont = Geist({
   variable: "--font-body",
   subsets: ["latin"],
   display: "swap",
 });
+
+export const viewport: Viewport = {
+  themeColor: "#f6faf8",
+  colorScheme: "light",
+};
 
 export const metadata: Metadata = {
   metadataBase: new URL(company.siteUrl),
@@ -66,10 +71,11 @@ export default function RootLayout({
       className={`${displayFont.variable} ${bodyFont.variable} h-full scroll-smooth antialiased`}
     >
       <body className="min-h-full bg-[var(--color-cream)] text-[var(--color-ink)]">
+        <a href="#main-content" className="skip-link">Skip to content</a>
         <div className="site-bg" />
         <div className="relative flex min-h-full flex-col">
           <SiteHeader />
-          <main className="flex-1">{children}</main>
+          <main id="main-content" className="flex-1">{children}</main>
           <SiteFooter company={company} />
         </div>
       </body>

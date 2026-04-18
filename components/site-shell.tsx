@@ -1,23 +1,51 @@
+"use client";
+
+import { useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { company } from "@/lib/site-data";
+import { usePathname } from "next/navigation";
+import { company, services } from "@/lib/site-data";
 
 const navLinks = [
   { href: "/", label: "Home" },
-  { href: "/services", label: "Services" },
   { href: "/case-studies", label: "Case Studies" },
   { href: "/reviews", label: "Reviews" },
   { href: "/about", label: "About" },
   { href: "/contact", label: "Contact" },
 ];
 
+const serviceNavLinks = services.map((service) => ({
+  href: `/services/${service.slug}`,
+  eyebrow: service.shortLabel,
+  label:
+    service.slug === "virtual-assistant"
+      ? "Virtual Assistant"
+      : service.slug === "bookkeeping-accounting"
+        ? "Bookkeeping Support"
+        : "Automation & Marketing",
+  description: service.summary,
+}));
+
 export function SiteHeader() {
+  const pathname = usePathname();
+  const servicesMenuRef = useRef<HTMLDetailsElement>(null);
+  const mobileMenuRef = useRef<HTMLDetailsElement>(null);
+
+  const closeMenus = () => {
+    servicesMenuRef.current?.removeAttribute("open");
+    mobileMenuRef.current?.removeAttribute("open");
+  };
+
+  useEffect(() => {
+    closeMenus();
+  }, [pathname]);
+
   return (
     <header className="sticky top-0 z-50 px-3 py-4 md:px-5">
-      <div className="section-shell glass-nav rounded-full px-5 py-3">
+      <div className="section-shell glass-nav rounded-[1.9rem] px-5 py-4">
         <div className="flex items-center justify-between gap-4">
-          <Link href="/" className="flex min-w-0 items-center gap-3">
-            <span className="flex h-11 w-11 items-center justify-center overflow-hidden rounded-full bg-[linear-gradient(135deg,#0d9488,#14b8a6)] shadow-[0_12px_35px_rgba(13,148,136,0.28)]">
+          <Link href="/" className="flex min-w-0 items-center gap-3" onClick={closeMenus}>
+            <span className="flex h-12 w-12 items-center justify-center overflow-hidden rounded-[1.15rem] border border-[rgba(11,143,132,0.1)] bg-[linear-gradient(180deg,#ffffff,#eef7f4)] shadow-[0_16px_38px_rgba(11,143,132,0.12)]">
               <Image
                 src="/seamlessva-emblem.svg"
                 alt="Seamless VA emblem"
@@ -28,7 +56,7 @@ export function SiteHeader() {
               />
             </span>
             <div className="min-w-0">
-              <p className="truncate text-[0.95rem] font-extrabold text-[var(--color-teal)]">
+              <p className="truncate text-[0.95rem] font-extrabold tracking-[-0.02em] text-[var(--color-teal)]">
                 Seamless <span className="text-[var(--color-ink)]">VA</span>
               </p>
               <p className="hidden text-sm text-[var(--color-slate)] sm:block">
@@ -37,35 +65,90 @@ export function SiteHeader() {
             </div>
           </Link>
 
-          <div className="hidden items-center gap-6 lg:flex">
+          <div className="hidden items-center gap-7 lg:flex">
+            <details ref={servicesMenuRef} className="nav-services relative">
+              <summary className="nav-services-trigger">
+                <span>Services</span>
+                <span className="nav-services-caret" aria-hidden="true" />
+              </summary>
+              <div className="nav-services-panel">
+                <div className="mb-4 flex items-center justify-between gap-4">
+                  <div>
+                    <p className="nav-services-label">Support Lanes</p>
+                    <p className="mt-1 text-sm leading-6 text-[var(--color-slate)]">
+                      Choose the lane that matches the current bottleneck.
+                    </p>
+                  </div>
+                  <Link href="/services" className="nav-services-viewall" onClick={closeMenus}>
+                    View all
+                  </Link>
+                </div>
+                <div className="nav-services-grid">
+                  {serviceNavLinks.map((service) => (
+                    <Link key={service.href} href={service.href} className="nav-service-card" onClick={closeMenus}>
+                      <span className="nav-service-eyebrow">{service.eyebrow}</span>
+                      <span className="nav-service-title">{service.label}</span>
+                      <span className="nav-service-copy">{service.description}</span>
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            </details>
             {navLinks.map((link) => (
-              <Link key={link.href} href={link.href} className="nav-link-pill">
+              <Link key={link.href} href={link.href} className="nav-link-pill" onClick={closeMenus}>
                 {link.label}
               </Link>
             ))}
           </div>
 
           <div className="flex items-center gap-2">
-            <a href={`tel:${company.phone}`} className="call-pill hidden lg:inline-flex">
-              {company.phone}
-            </a>
-            <Link href="/contact" className="btn-primary hidden lg:inline-flex">
-              Start A Project
-            </Link>
+            <div className="hidden items-center gap-2 lg:flex">
+              <a href={`tel:${company.phone}`} className="call-pill">
+                {company.phone}
+              </a>
+              <Link href="/contact" className="header-cta" onClick={closeMenus}>
+                Start A Project
+              </Link>
+            </div>
 
-            <details className="relative lg:hidden">
-              <summary className="menu-summary">Menu</summary>
-              <div className="mobile-menu-panel absolute right-0 top-full mt-3 w-[min(18rem,calc(100vw-2rem))] p-3">
+            <details ref={mobileMenuRef} className="menu-shell relative lg:hidden">
+              <summary className="menu-summary" aria-label="Open navigation menu">
+                <span className="menu-burger" aria-hidden="true">
+                  <span />
+                  <span />
+                  <span />
+                </span>
+              </summary>
+              <div className="mobile-menu-backdrop" aria-hidden="true" onClick={closeMenus} />
+              <div className="mobile-menu-panel p-3">
                 <nav className="flex flex-col gap-1">
+                  <p className="mobile-menu-label">Navigation</p>
+                  <Link href="/" className="mobile-menu-link" onClick={closeMenus}>Home</Link>
+                  <div className="mobile-menu-section">
+                    <p className="mobile-menu-label">Services</p>
+                    <div className="mt-2 space-y-2">
+                      {serviceNavLinks.map((service) => (
+                        <Link key={service.href} href={service.href} className="mobile-service-link" onClick={closeMenus}>
+                          <span className="mobile-service-eyebrow">{service.eyebrow}</span>
+                          <span className="mobile-service-title">{service.label}</span>
+                        </Link>
+                      ))}
+                      <Link href="/services" className="mobile-menu-link" onClick={closeMenus}>
+                        All Services
+                      </Link>
+                    </div>
+                  </div>
                   {navLinks.map((link) => (
-                    <Link key={link.href} href={link.href} className="mobile-menu-link">
-                      {link.label}
-                    </Link>
+                    link.href === "/" ? null : (
+                      <Link key={link.href} href={link.href} className="mobile-menu-link" onClick={closeMenus}>
+                        {link.label}
+                      </Link>
+                    )
                   ))}
                   <a href={`tel:${company.phone}`} className="mobile-menu-link mt-2">
                     Call {company.phone}
                   </a>
-                  <Link href="/contact" className="btn-primary justify-center text-center">
+                  <Link href="/contact" className="header-cta justify-center text-center" onClick={closeMenus}>
                     Start A Project
                   </Link>
                 </nav>

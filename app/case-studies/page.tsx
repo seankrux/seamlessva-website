@@ -14,8 +14,8 @@ export default function CaseStudiesPage() {
   return (
     <section className="pb-20 pt-6 md:pt-10">
       <div className="section-shell space-y-8">
-        <div className="hero-surface px-6 py-10 md:px-10 md:py-12">
-          <div className="section-shell !w-full">
+        <div className="hero-surface hero-surface-compact mx-auto max-w-[920px] px-6 py-10 md:px-10 md:py-12">
+          <div className="max-w-[800px]">
             <span className="template-badge">Case Studies</span>
             <h1 className="mt-5 section-title max-w-[800px]">
               Client stories that show challenge, approach, and the lift created after the handoff.
@@ -38,7 +38,10 @@ export default function CaseStudiesPage() {
                   <div key={outcome} className="rounded-[16px] border border-[rgba(13,148,136,0.08)] bg-[rgba(13,148,136,0.04)] px-4 py-3">{outcome}</div>
                 ))}
               </div>
-              <Link href={`/case-studies/${study.slug}`} className="template-btn mt-6">Open Case Study</Link>
+              <Link href={`/case-studies/${study.slug}`} className="template-btn mt-6">
+                <span>Open Case Study</span>
+                <span className="template-btn-icon" aria-hidden="true">↗</span>
+              </Link>
             </article>
           ))}
         </div>
