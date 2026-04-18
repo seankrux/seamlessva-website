@@ -109,7 +109,7 @@ export default function ServicesPage() {
                 bookkeeping upkeep, or growth execution support.
               </p>
               <div className="mt-8 flex flex-wrap gap-4 fade-rise" style={{ animationDelay: '0.3s' }}>
-                <Link href="/contact" className="template-btn">
+                <Link href="/contact#intake-form" className="template-btn">
                   <span>Book Fit Call</span>
                   <span className="template-btn-icon" aria-hidden="true">↗</span>
                 </Link>
@@ -142,7 +142,7 @@ export default function ServicesPage() {
                       </div>
                     ))}
                   </div>
-                  <Link href="/contact" className="template-btn mt-5 w-full justify-center">
+                  <Link href="/contact#intake-form" className="template-btn mt-5 w-full justify-center">
                     <span>Book Fit Call</span>
                     <span className="template-btn-icon" aria-hidden="true">↗</span>
                   </Link>
@@ -182,7 +182,7 @@ export default function ServicesPage() {
             Book a free 30-minute consultation. We will map where your time is leaking and give you a clear first move.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
-            <Link href="/contact" className="template-btn-soft !bg-white !px-5 !py-3 !font-bold">
+            <Link href="/contact#intake-form" className="template-btn-soft !bg-white !px-5 !py-3 !font-bold">
               <span>Book Free Consultation</span>
               <span className="template-btn-icon" aria-hidden="true">↗</span>
             </Link>

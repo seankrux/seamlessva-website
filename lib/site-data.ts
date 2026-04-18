@@ -23,7 +23,7 @@ export type CaseStudy = {
 export const company = {
   name: "Seamless VA",
   miniTagline: "Operational support for founders and lean teams",
-  email: "sales@seamlessva.com",
+  email: "info@seamless-va.com",
   phone: "+1-289-769-1537",
   location: "268 Hillside Dr, Mississauga, Ontario, Canada",
   siteUrl: "https://seamless-va.com",

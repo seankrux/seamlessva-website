@@ -1,12 +1,14 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import Link from "next/link";
+import { IntakeForm } from "@/components/intake-form";
 import { createPageMetadata } from "@/lib/metadata";
 import { company, processSteps } from "@/lib/site-data";
 
 export const metadata: Metadata = createPageMetadata({
   title: "Contact",
   description:
-    "Book a consultation with Seamless VA to discuss operational support, bookkeeping, growth execution, and onboarding needs.",
+    "Open the Seamless VA intake form to discuss operational support, bookkeeping, growth execution, and onboarding needs.",
   path: "/contact",
 });
 
@@ -56,7 +58,7 @@ export default function ContactPage() {
                     <p>{company.location}</p>
                   </div>
                   <div className="mt-6 space-y-3">
-                    <a href={`mailto:${company.email}?subject=Seamless%20VA%20consultation`} className="template-btn w-full justify-center">Email the team</a>
+                    <Link href="#intake-form" className="template-btn w-full justify-center">Open Intake Form</Link>
                     <a href={`tel:${company.phone}`} className="template-btn-soft w-full justify-center">Call {company.phone}</a>
                   </div>
                 </div>
@@ -64,6 +66,8 @@ export default function ContactPage() {
             </div>
           </div>
         </div>
+
+        <IntakeForm />
 
         <div className="grid gap-4 lg:grid-cols-3">
           {processSteps.map((step, index) => (

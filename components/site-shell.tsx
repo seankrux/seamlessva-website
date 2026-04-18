@@ -14,6 +14,8 @@ const navLinks = [
   { href: "/contact", label: "Contact" },
 ];
 
+const menuLinks = navLinks.filter((link) => link.href !== "/");
+
 const serviceNavLinks = services.map((service) => ({
   href: `/services/${service.slug}`,
   eyebrow: service.shortLabel,
@@ -94,7 +96,7 @@ export function SiteHeader() {
                 </div>
               </div>
             </details>
-            {navLinks.map((link) => (
+            {menuLinks.map((link) => (
               <Link key={link.href} href={link.href} className="nav-link-pill" onClick={closeMenus}>
                 {link.label}
               </Link>
@@ -106,7 +108,7 @@ export function SiteHeader() {
               <a href={`tel:${company.phone}`} className="call-pill">
                 {company.phone}
               </a>
-              <Link href="/contact" className="header-cta" onClick={closeMenus}>
+              <Link href="/contact#intake-form" className="header-cta" onClick={closeMenus}>
                 Start A Project
               </Link>
             </div>
@@ -123,7 +125,6 @@ export function SiteHeader() {
               <div className="mobile-menu-panel p-3">
                 <nav className="flex flex-col gap-1">
                   <p className="mobile-menu-label">Navigation</p>
-                  <Link href="/" className="mobile-menu-link" onClick={closeMenus}>Home</Link>
                   <div className="mobile-menu-section">
                     <p className="mobile-menu-label">Services</p>
                     <div className="mt-2 space-y-2">
@@ -138,17 +139,15 @@ export function SiteHeader() {
                       </Link>
                     </div>
                   </div>
-                  {navLinks.map((link) => (
-                    link.href === "/" ? null : (
-                      <Link key={link.href} href={link.href} className="mobile-menu-link" onClick={closeMenus}>
-                        {link.label}
-                      </Link>
-                    )
+                  {menuLinks.map((link) => (
+                    <Link key={link.href} href={link.href} className="mobile-menu-link" onClick={closeMenus}>
+                      {link.label}
+                    </Link>
                   ))}
                   <a href={`tel:${company.phone}`} className="mobile-menu-link mt-2">
                     Call {company.phone}
                   </a>
-                  <Link href="/contact" className="header-cta justify-center text-center" onClick={closeMenus}>
+                  <Link href="/contact#intake-form" className="header-cta justify-center text-center" onClick={closeMenus}>
                     Start A Project
                   </Link>
                 </nav>
@@ -183,7 +182,7 @@ export function SiteFooter({ company }: FooterProps) {
               and execution work that keeps dragging leadership back into the weeds.
             </p>
             <div className="flex flex-col gap-3 sm:flex-row">
-              <Link href="/contact" className="btn-secondary justify-center bg-white text-[var(--color-teal)] sm:justify-start">
+              <Link href="/contact#intake-form" className="btn-secondary justify-center bg-white text-[var(--color-teal)] sm:justify-start">
                 Book a free consultation
               </Link>
               <a href={`tel:${company.phone}`} className="btn-secondary justify-center border-white/30 bg-white/10 text-white sm:justify-start">
@@ -196,7 +195,7 @@ export function SiteFooter({ company }: FooterProps) {
             <div>
               <p className="footer-label">Company</p>
               <div className="mt-4 flex flex-col gap-3 text-sm text-[rgba(255,255,255,0.88)]">
-                {navLinks.map((link) => (
+                {menuLinks.map((link) => (
                   <Link key={link.href} href={link.href} className="footer-link">
                     {link.label}
                   </Link>

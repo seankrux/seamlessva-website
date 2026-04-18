@@ -51,7 +51,7 @@ export default async function ServiceDetailPage({ params }: PageProps) {
           </p>
           <div className="mt-7 flex flex-col gap-3 sm:flex-row">
             <Link
-              href="/contact"
+              href="/contact#intake-form"
               className="rounded-full bg-[var(--color-teal)] px-6 py-3 text-center font-semibold text-white"
             >
               Book a consultation

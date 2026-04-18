@@ -146,7 +146,7 @@ export default function Home() {
                 </div>
 
                 <div className="fade-rise flex flex-wrap gap-4" style={{ animationDelay: '0.3s' }}>
-                  <Link href="/contact" className="template-btn">
+                  <Link href="/contact#intake-form" className="template-btn">
                     <span>Book Free Consultation</span>
                     <span className="template-btn-icon" aria-hidden="true">↗</span>
                   </Link>
@@ -206,7 +206,7 @@ export default function Home() {
                       <div><strong className="text-[var(--color-ink)]">Finance hygiene:</strong> transaction organization and reporting prep get steadier.</div>
                       <div><strong className="text-[var(--color-ink)]">Revenue follow-through:</strong> lead handling and campaign execution stop drifting.</div>
                     </div>
-                    <Link href="/contact" className="template-btn mt-5 w-full justify-center">
+                    <Link href="/contact#intake-form" className="template-btn mt-5 w-full justify-center">
                       <span>Reserve Fit Call</span>
                       <span className="template-btn-icon" aria-hidden="true">↗</span>
                     </Link>
@@ -401,7 +401,7 @@ export default function Home() {
             Book a free 30-minute consultation. We’ll map the drag, show where ownership is leaking, and give you a clear first move — with zero pressure.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
-            <Link href="/contact" className="template-btn">
+            <Link href="/contact#intake-form" className="template-btn">
               <span>Book My Free Consultation</span>
               <span className="template-btn-icon" aria-hidden="true">↗</span>
             </Link>

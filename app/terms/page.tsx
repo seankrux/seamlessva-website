@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { createPageMetadata } from "@/lib/metadata";
+import { company } from "@/lib/site-data";
 
 export const metadata: Metadata = createPageMetadata({
   title: "Terms of Use",
@@ -29,8 +30,8 @@ export default function TermsPage() {
               You may not copy, scrape, or republish site materials for unlawful
               or misleading purposes. If you have questions about service terms,
               email{" "}
-              <a href="mailto:sales@seamlessva.com" className="link-accent">
-                sales@seamlessva.com
+              <a href={`mailto:${company.email}`} className="link-accent">
+                {company.email}
               </a>
               .
             </p>

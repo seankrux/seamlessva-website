@@ -110,7 +110,7 @@ export default async function CaseStudyPage({ params }: PageProps) {
                 What improved after the support layer was stabilized.
               </h2>
             </div>
-            <Link href="/contact" className="btn-primary justify-center md:justify-start">
+            <Link href="/contact#intake-form" className="btn-primary justify-center md:justify-start">
               Talk through a similar engagement
             </Link>
           </div>

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { createPageMetadata } from "@/lib/metadata";
+import { company } from "@/lib/site-data";
 
 export const metadata: Metadata = createPageMetadata({
   title: "Privacy Policy",
@@ -31,8 +32,8 @@ export default function PrivacyPolicyPage() {
             </p>
             <p>
               If you want your information updated or removed, contact{" "}
-              <a href="mailto:sales@seamlessva.com" className="link-accent">
-                sales@seamlessva.com
+              <a href={`mailto:${company.email}`} className="link-accent">
+                {company.email}
               </a>
               .
             </p>

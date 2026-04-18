@@ -49,7 +49,7 @@ export default function ReviewsPage() {
         </div>
 
         <div className="text-center">
-          <Link href="/contact" className="template-btn">
+          <Link href="/contact#intake-form" className="template-btn">
             <span>Talk Through Fit</span>
             <span className="template-btn-icon" aria-hidden="true">↗</span>
           </Link>
