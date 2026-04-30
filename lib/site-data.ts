@@ -21,8 +21,8 @@ export type CaseStudy = {
 };
 
 export const company = {
-  name: "Seamless VA",
-  miniTagline: "Operational support for founders and lean teams",
+  name: "SeamlessVA Philippines",
+  miniTagline: "",
   email: "info@seamless-va.com",
   phone: "+1-289-769-1537",
   location: "268 Hillside Dr, Mississauga, Ontario, Canada",
@@ -240,7 +240,7 @@ export const testimonials = [
     name: "Rachel M.",
     role: "Founder & CEO, Growthify Inc.",
     quote:
-      "Seamless VA helped us stop treating operations like a pile of urgent one-offs. We finally had support that could keep pace with the business and think in process, not just tasks.",
+      "SeamlessVA Philippines helped us stop treating operations like a pile of urgent one-offs. We finally had support that could keep pace with the business and think in process, not just tasks.",
   },
   {
     name: "Operations Lead, Insurance Client",
@@ -263,7 +263,7 @@ export const faqs = [
       "The first consultation is used to map your current workload, the recurring work that keeps boomeranging back, and the points where process cleanup matters before more headcount does.",
   },
   {
-    question: "Can Seamless VA support more than admin tasks?",
+    question: "Can SeamlessVA Philippines support more than admin tasks?",
     answer:
       "Yes. The support model spans admin execution, bookkeeping coordination, and growth-side execution so the handoffs across your business stay connected.",
   },
