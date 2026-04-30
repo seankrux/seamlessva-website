@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { HeroScene } from "@/components/hero-scene";
 import { company, faqs, goodFitSignals, processSteps, services, testimonials } from "@/lib/site-data";
 import { createPageMetadata } from "@/lib/metadata";
 
@@ -10,11 +11,7 @@ export const metadata: Metadata = createPageMetadata({
 });
 
 export default function Home() {
-  const heroChecks = [
-    "Inbox and calendar overload",
-    "Bookkeeping follow-through keeps slipping",
-    "Leads and tasks stall without ownership",
-  ];
+  const heroChecks = ["Inbox and calendar overload", "Bookkeeping follow-through slips", "Leads stall without ownership"];
 
   const stats = [
     { value: `${services.length}`, label: "support lanes" },
@@ -67,48 +64,25 @@ export default function Home() {
               <div className="min-w-0">
                 <span className="template-badge">Seamless VA</span>
                 <h1 className="section-title mt-5 max-w-[760px]">
-                  Drowning In Admin And Follow-Ups?
+                  <span className="block text-[var(--color-ink)]">Virtual Assistant Support</span>
+                  <span className="block text-[var(--color-brand-green)]">Start With Less Admin Drag</span>
                 </h1>
                 <p className="hero-copy">
-                  Get structured virtual assistant, bookkeeping, and growth support that keeps daily work moving without hiring in-house.
+                  For founders and lean teams that need inbox, scheduling, bookkeeping, and growth support without hiring in-house.
                 </p>
                 <div className="check-list mb-10">
                   {heroChecks.map((item) => <div key={item} className="check-item">{item}</div>)}
                 </div>
                 <div className="flex flex-wrap gap-4">
                   <Link href="/contact#intake-form" className="template-btn">
-                    <span>Start A Project</span><span className="template-btn-icon" aria-hidden="true">↗</span>
+                    <span>Start Project</span><span className="template-btn-icon" aria-hidden="true">↗</span>
                   </Link>
                   <Link href="/contact#intake-form" className="template-btn-soft">
                     <span>Load Intake Form</span><span className="template-btn-icon" aria-hidden="true">↗</span>
                   </Link>
                 </div>
               </div>
-
-              <div className="hero-visual-shell">
-                <div className="bezel-shell">
-                  <div className="hero-proof-card template-card">
-                    <p className="mb-2 text-sm font-semibold uppercase tracking-[0.05em] text-[var(--color-brand-purple)]">3 Service Lanes</p>
-                    <h2 className="font-[var(--font-display)] text-[1.45rem] font-[800] text-[var(--color-ink)]">Support that starts where work gets heavy.</h2>
-                    <div className="mt-4 grid gap-3">
-                      {services.map((service) => (
-                        <Link key={service.slug} href={`/services/${service.slug}`} className="lane-chip text-left">
-                          {service.title}
-                        </Link>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-                <div className="bezel-shell">
-                  <div className="hero-proof-summary template-card">
-                    <p className="mb-2 text-sm font-semibold uppercase tracking-[0.05em] text-[var(--color-brand-orange)]">Free 30-Minute Consultation</p>
-                    <p className="text-sm leading-7 text-[var(--color-slate)]">Map the bottlenecks before the work begins.</p>
-                    <Link href="/contact#intake-form" className="template-btn mt-5 w-full justify-center">
-                      <span>Load Intake Form</span><span className="template-btn-icon" aria-hidden="true">↗</span>
-                    </Link>
-                  </div>
-                </div>
-              </div>
+              <HeroScene variant="home" />
             </div>
           </div>
         </div>
