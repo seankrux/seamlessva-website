@@ -47,10 +47,10 @@ export function SiteHeader() {
       <div className="section-shell glass-nav rounded-[1.9rem] px-5 py-4">
         <div className="flex items-center justify-between gap-4">
           <Link href="/" className="flex min-w-0 items-center gap-3" onClick={closeMenus}>
-            <span className="flex h-12 w-12 items-center justify-center overflow-hidden rounded-[1.15rem] border border-[rgba(11,143,132,0.1)] bg-[linear-gradient(180deg,#ffffff,#eef7f4)] shadow-[0_16px_38px_rgba(11,143,132,0.12)]">
+            <span className="flex h-12 w-12 items-center justify-center overflow-hidden rounded-[1.15rem] border border-[rgba(99,91,255,0.14)] bg-[#0f1631] shadow-[0_16px_38px_rgba(15,22,49,0.16)]">
               <Image
                 src="/seamlessva-emblem.svg"
-                alt="Seamless VA emblem"
+                alt="SeamlessVA Philippines emblem"
                 width={44}
                 height={44}
                 className="h-11 w-11"
@@ -58,11 +58,8 @@ export function SiteHeader() {
               />
             </span>
             <div className="min-w-0">
-              <p className="truncate text-[0.95rem] font-extrabold tracking-[-0.02em] text-[var(--color-teal)]">
-                Seamless <span className="text-[var(--color-ink)]">VA</span>
-              </p>
-              <p className="hidden text-sm text-[var(--color-slate)] sm:block">
-                Operational support for founders and lean teams
+              <p className="truncate text-[0.98rem] font-extrabold tracking-[-0.02em] text-[var(--color-brand-purple)]">
+                SeamlessVA <span className="text-[var(--color-brand-orange)]">Philippines</span>
               </p>
             </div>
           </Link>
@@ -165,24 +162,24 @@ type FooterProps = { company: typeof company };
 export function SiteFooter({ company }: FooterProps) {
   return (
     <footer className="mt-10 px-3 pb-8 pt-10 md:px-5 md:pb-10">
-      <div className="section-shell rounded-[2rem] bg-[linear-gradient(135deg,#0d9488,#14b8a6)] px-6 py-8 text-white shadow-[0_18px_60px_rgba(13,148,136,0.22)] md:px-9 md:py-10">
+      <div className="section-shell rounded-[2rem] bg-[linear-gradient(135deg,#0f1631,#635bff_58%,#ff8a5b)] px-6 py-8 text-white shadow-[0_18px_60px_rgba(15,22,49,0.24)] md:px-9 md:py-10">
         <div className="grid gap-10 lg:grid-cols-[1.15fr_0.85fr]">
           <div className="space-y-5">
             <div className="flex items-center gap-3">
               <span className="flex h-12 w-12 items-center justify-center overflow-hidden rounded-full border border-white/20 bg-white/15">
-                <Image src="/seamlessva-emblem.svg" alt="Seamless VA emblem" width={48} height={48} className="h-12 w-12" />
+                <Image src="/seamlessva-emblem.svg" alt="SeamlessVA Philippines emblem" width={48} height={48} className="h-12 w-12" />
               </span>
-              <span className="template-badge !bg-white/15 !text-white">Seamless VA</span>
+              <span className="template-badge !bg-white/15 !text-white">SeamlessVA Philippines</span>
             </div>
             <h2 className="section-subtitle max-w-2xl text-white">
               Clean systems. Calmer operations. Better follow-through.
             </h2>
             <p className="max-w-2xl text-sm leading-7 text-[rgba(255,255,255,0.86)] md:text-base">
-              Seamless VA helps founder-led teams offload recurring admin, bookkeeping,
+              SeamlessVA Philippines helps founder-led teams offload recurring admin, bookkeeping,
               and execution work that keeps dragging leadership back into the weeds.
             </p>
             <div className="flex flex-col gap-3 sm:flex-row">
-              <Link href="/contact#intake-form" className="btn-secondary justify-center bg-white text-[var(--color-teal)] sm:justify-start">
+              <Link href="/contact#intake-form" className="btn-secondary justify-center bg-white text-[var(--color-brand-purple)] sm:justify-start">
                 Book a free consultation
               </Link>
               <a href={`tel:${company.phone}`} className="btn-secondary justify-center border-white/30 bg-white/10 text-white sm:justify-start">
