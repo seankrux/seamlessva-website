@@ -46,22 +46,15 @@ export function SiteHeader() {
     <header className="sticky top-0 z-50 px-3 py-4 md:px-5">
       <div className="section-shell glass-nav rounded-[1.9rem] px-5 py-4">
         <div className="flex items-center justify-between gap-4">
-          <Link href="/" className="flex min-w-0 items-center gap-3" onClick={closeMenus}>
-            <span className="flex h-12 w-12 items-center justify-center overflow-hidden rounded-[1.15rem] border border-[rgba(99,91,255,0.14)] bg-[#0f1631] shadow-[0_16px_38px_rgba(15,22,49,0.16)]">
-              <Image
-                src="/seamlessva-emblem.svg"
-                alt="SeamlessVA Philippines emblem"
-                width={44}
-                height={44}
-                className="h-11 w-11"
-                priority
-              />
-            </span>
-            <div className="min-w-0">
-              <p className="truncate text-[0.98rem] font-extrabold tracking-[-0.02em] text-[var(--color-brand-purple)]">
-                SeamlessVA <span className="text-[var(--color-brand-orange)]">Philippines</span>
-              </p>
-            </div>
+          <Link href="/" className="flex min-w-0 items-center" onClick={closeMenus} aria-label="SeamlessVA Philippines home">
+            <Image
+              src="/seamlessva-logo.svg"
+              alt="SeamlessVA Philippines"
+              width={210}
+              height={56}
+              className="h-12 w-auto max-w-[210px] sm:h-14"
+              priority
+            />
           </Link>
 
           <div className="hidden items-center gap-7 lg:flex">
@@ -165,12 +158,13 @@ export function SiteFooter({ company }: FooterProps) {
       <div className="section-shell rounded-[2rem] bg-[linear-gradient(135deg,#0f1631,#635bff_58%,#ff8a5b)] px-6 py-8 text-white shadow-[0_18px_60px_rgba(15,22,49,0.24)] md:px-9 md:py-10">
         <div className="grid gap-10 lg:grid-cols-[1.15fr_0.85fr]">
           <div className="space-y-5">
-            <div className="flex items-center gap-3">
-              <span className="flex h-12 w-12 items-center justify-center overflow-hidden rounded-full border border-white/20 bg-white/15">
-                <Image src="/seamlessva-emblem.svg" alt="SeamlessVA Philippines emblem" width={48} height={48} className="h-12 w-12" />
-              </span>
-              <span className="template-badge !bg-white/15 !text-white">SeamlessVA Philippines</span>
-            </div>
+            <Image
+              src="/seamlessva-logo.svg"
+              alt="SeamlessVA Philippines"
+              width={230}
+              height={62}
+              className="h-14 w-auto rounded-2xl bg-white/95 p-2 shadow-[0_18px_40px_rgba(15,22,49,0.16)]"
+            />
             <h2 className="section-subtitle max-w-2xl text-white">
               Clean systems. Calmer operations. Better follow-through.
             </h2>
