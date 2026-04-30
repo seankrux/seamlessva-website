@@ -46,10 +46,10 @@ export function SiteHeader() {
     <header className="sticky top-0 z-50 px-3 py-4 md:px-5">
       <div className="section-shell glass-nav rounded-[1.9rem] px-5 py-4">
         <div className="flex items-center justify-between gap-4">
-          <Link href="/" className="flex min-w-0 items-center" onClick={closeMenus} aria-label="SeamlessVA Philippines home">
+          <Link href="/" className="flex min-w-0 items-center" onClick={closeMenus} aria-label="Seamless VA home">
             <Image
               src="/seamlessva-logo.svg"
-              alt="SeamlessVA Philippines"
+              alt="Seamless VA"
               width={210}
               height={56}
               className="h-12 w-auto max-w-[210px] sm:h-14"
@@ -155,21 +155,21 @@ type FooterProps = { company: typeof company };
 export function SiteFooter({ company }: FooterProps) {
   return (
     <footer className="mt-10 px-3 pb-8 pt-10 md:px-5 md:pb-10">
-      <div className="section-shell rounded-[2rem] bg-[linear-gradient(135deg,#0f1631,#635bff_58%,#ff8a5b)] px-6 py-8 text-white shadow-[0_18px_60px_rgba(15,22,49,0.24)] md:px-9 md:py-10">
+      <div className="section-shell rounded-[2rem] bg-[linear-gradient(135deg,#07162a,#00b884_58%,#24f2b2)] px-6 py-8 text-white shadow-[0_18px_60px_rgba(7,22,42,0.24)] md:px-9 md:py-10">
         <div className="grid gap-10 lg:grid-cols-[1.15fr_0.85fr]">
           <div className="space-y-5">
             <Image
               src="/seamlessva-logo.svg"
-              alt="SeamlessVA Philippines"
+              alt="Seamless VA"
               width={230}
               height={62}
-              className="h-14 w-auto rounded-2xl bg-white/95 p-2 shadow-[0_18px_40px_rgba(15,22,49,0.16)]"
+              className="h-14 w-auto rounded-2xl bg-white/95 p-2 shadow-[0_18px_40px_rgba(7,22,42,0.16)]"
             />
             <h2 className="section-subtitle max-w-2xl text-white">
               Clean systems. Calmer operations. Better follow-through.
             </h2>
             <p className="max-w-2xl text-sm leading-7 text-[rgba(255,255,255,0.86)] md:text-base">
-              SeamlessVA Philippines helps founder-led teams offload recurring admin, bookkeeping,
+              Seamless VA helps founder-led teams offload recurring admin, bookkeeping,
               and execution work that keeps dragging leadership back into the weeds.
             </p>
             <div className="flex flex-col gap-3 sm:flex-row">
