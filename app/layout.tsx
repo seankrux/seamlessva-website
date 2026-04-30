@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Geist, Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
+import "./brand-overrides.css";
 import { SiteFooter, SiteHeader } from "@/components/site-shell";
 import { company } from "@/lib/site-data";
 
