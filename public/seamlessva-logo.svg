@@ -1,28 +1,25 @@
 <svg width="360" height="96" viewBox="0 0 360 96" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
-  <title id="title">SeamlessVA Philippines</title>
-  <desc id="desc">SeamlessVA Philippines logo without tagline</desc>
+  <title id="title">Seamless VA</title>
+  <desc id="desc">Seamless VA logo using the client supplied emblem style</desc>
   <defs>
-    <linearGradient id="bg" x1="9" y1="6" x2="86" y2="89" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#7B74FF"/>
-      <stop offset="0.55" stop-color="#635BFF"/>
-      <stop offset="1" stop-color="#FF8A5B"/>
+    <linearGradient id="mark" x1="16" y1="12" x2="88" y2="86" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#8BF7FF"/>
+      <stop offset="0.52" stop-color="#24F2B2"/>
+      <stop offset="1" stop-color="#35E8FF"/>
     </linearGradient>
-    <linearGradient id="line" x1="27" y1="26" x2="69" y2="70" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#FFFFFF"/>
-      <stop offset="1" stop-color="#E6E8FF"/>
-    </linearGradient>
-    <linearGradient id="word" x1="105" y1="22" x2="333" y2="68" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#0F1631"/>
-      <stop offset="0.58" stop-color="#635BFF"/>
-      <stop offset="1" stop-color="#FF8A5B"/>
+    <linearGradient id="word" x1="106" y1="24" x2="300" y2="68" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#07162A"/>
+      <stop offset="0.72" stop-color="#061B33"/>
+      <stop offset="1" stop-color="#00B884"/>
     </linearGradient>
   </defs>
-  <rect x="6" y="6" width="84" height="84" rx="26" fill="#0F1631"/>
-  <rect x="11" y="11" width="74" height="74" rx="22" fill="url(#bg)" opacity="0.24"/>
-  <path d="M27 32C27 26.477 31.477 22 37 22H58.6C64.123 22 68.6 26.477 68.6 32V33.2C68.6 38.723 64.123 43.2 58.6 43.2H42.1C36.577 43.2 32.1 47.677 32.1 53.2V54.4C32.1 59.923 36.577 64.4 42.1 64.4H71" stroke="url(#line)" stroke-width="7" stroke-linecap="round"/>
-  <path d="M71 64.4C71 69.923 66.523 74.4 61 74.4H39.4C33.877 74.4 29.4 69.923 29.4 64.4V63.2C29.4 57.677 33.877 53.2 39.4 53.2H55.9C61.423 53.2 65.9 48.723 65.9 43.2V42C65.9 36.477 61.423 32 55.9 32H27" stroke="url(#line)" stroke-width="7" stroke-linecap="round" opacity="0.92"/>
-  <circle cx="71.5" cy="26.5" r="3.5" fill="#FFD7C7"/>
-  <circle cx="25" cy="70" r="3" fill="#D9D6FF"/>
-  <text x="106" y="43" fill="url(#word)" font-family="Inter, Arial, sans-serif" font-size="28" font-weight="800" letter-spacing="-0.9">SeamlessVA</text>
-  <text x="106" y="69" fill="#FF8A5B" font-family="Inter, Arial, sans-serif" font-size="22" font-weight="800" letter-spacing="-0.4">Philippines</text>
+  <g transform="translate(6 4)">
+    <circle cx="44" cy="44" r="30" fill="none" stroke="url(#mark)" stroke-width="8" opacity="0.9"/>
+    <path d="M44 4v80M4 44h80M15 18c18 14 39 14 58 0M15 70c18-14 39-14 58 0" stroke="url(#mark)" stroke-width="2.5" opacity="0.72"/>
+    <path d="M9 48c10 8 23 12 35 12 13 0 25-4 35-12" stroke="url(#mark)" stroke-width="3" opacity="0.72"/>
+    <rect x="16" y="12" width="56" height="19" rx="3" fill="#B9F8FF" opacity="0.9"/>
+    <text x="44" y="26" text-anchor="middle" fill="#07162A" font-family="Georgia, serif" font-size="10" font-style="italic" letter-spacing=".8">SEAMLESS</text>
+    <text x="44" y="62" text-anchor="middle" fill="#07162A" font-family="Georgia, serif" font-size="48" font-weight="700" font-style="italic">VA</text>
+  </g>
+  <text x="108" y="56" fill="url(#word)" font-family="Inter, Arial, sans-serif" font-size="32" font-weight="800" letter-spacing="-1.1">Seamless VA</text>
 </svg>
