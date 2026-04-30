@@ -19,25 +19,25 @@ const bodyFont = Geist({
 });
 
 export const viewport: Viewport = {
-  themeColor: "#f8f8ff",
+  themeColor: "#f6fff9",
   colorScheme: "light",
 };
 
 export const metadata: Metadata = {
   metadataBase: new URL(company.siteUrl),
   title: {
-    default: "SeamlessVA Philippines | Virtual Assistant & Operations Support",
-    template: "%s | SeamlessVA Philippines",
+    default: "Seamless VA | Virtual Assistant & Operations Support",
+    template: "%s | Seamless VA",
   },
   description:
-    "SeamlessVA Philippines helps founders and lean teams offload admin, bookkeeping, and growth operations with structured virtual assistant support.",
+    "Seamless VA helps founders and lean teams offload admin, bookkeeping, and growth operations with structured virtual assistant support.",
   applicationName: company.name,
   authors: [{ name: company.name }],
   creator: company.name,
   publisher: company.name,
   keywords: [
-    "virtual assistant Philippines",
-    "Philippines VA services",
+    "virtual assistant services",
+    "VA services",
     "bookkeeping support",
     "operations support",
     "executive assistant support",
@@ -46,25 +46,25 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: "/" },
   openGraph: {
-    title: "SeamlessVA Philippines | Virtual Assistant & Operations Support",
+    title: "Seamless VA | Virtual Assistant & Operations Support",
     description:
       "Structured virtual assistant, bookkeeping, operations, and growth execution support for founders and lean teams.",
     url: "/",
     siteName: company.name,
-    locale: "en_PH",
+    locale: "en_US",
     type: "website",
     images: [
       {
         url: "/seamlessva-logo.svg",
         width: 1200,
         height: 630,
-        alt: "SeamlessVA Philippines",
+        alt: "Seamless VA",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "SeamlessVA Philippines | Virtual Assistant & Operations Support",
+    title: "Seamless VA | Virtual Assistant & Operations Support",
     description:
       "Structured virtual assistant, bookkeeping, operations, and growth execution support for founders and lean teams.",
     images: ["/seamlessva-logo.svg"],
@@ -78,7 +78,7 @@ export default function RootLayout({
 }>) {
   return (
     <html
-      lang="en-PH"
+      lang="en"
       className={`${displayFont.variable} ${bodyFont.variable} h-full scroll-smooth antialiased`}
     >
       <body className="min-h-full bg-[var(--color-cream)] text-[var(--color-ink)]">
