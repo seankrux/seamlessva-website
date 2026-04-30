@@ -18,45 +18,55 @@ const bodyFont = Geist({
 });
 
 export const viewport: Viewport = {
-  themeColor: "#f6faf8",
+  themeColor: "#f8f8ff",
   colorScheme: "light",
 };
 
 export const metadata: Metadata = {
   metadataBase: new URL(company.siteUrl),
   title: {
-    default: "Seamless VA | Operational support that keeps growth moving",
-    template: "%s | Seamless VA",
+    default: "SeamlessVA Philippines | Virtual Assistant & Operations Support",
+    template: "%s | SeamlessVA Philippines",
   },
   description:
-    "Seamless VA helps founders and lean teams offload admin, bookkeeping, and growth operations with a conversion-focused support model.",
+    "SeamlessVA Philippines helps founders and lean teams offload admin, bookkeeping, and growth operations with structured virtual assistant support.",
   applicationName: company.name,
   authors: [{ name: company.name }],
   creator: company.name,
   publisher: company.name,
   keywords: [
-    "virtual assistant services",
+    "virtual assistant Philippines",
+    "Philippines VA services",
     "bookkeeping support",
     "operations support",
     "executive assistant support",
     "digital marketing support",
-    "Mississauga virtual assistant",
+    "remote admin support",
   ],
   alternates: { canonical: "/" },
   openGraph: {
-    title: "Seamless VA | Operational support that keeps growth moving",
+    title: "SeamlessVA Philippines | Virtual Assistant & Operations Support",
     description:
-      "Seamless VA helps founders and lean teams offload admin, bookkeeping, and growth operations with a conversion-focused support model.",
+      "Structured virtual assistant, bookkeeping, operations, and growth execution support for founders and lean teams.",
     url: "/",
     siteName: company.name,
-    locale: "en_CA",
+    locale: "en_PH",
     type: "website",
+    images: [
+      {
+        url: "/seamlessva-logo.svg",
+        width: 1200,
+        height: 630,
+        alt: "SeamlessVA Philippines",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Seamless VA | Operational support that keeps growth moving",
+    title: "SeamlessVA Philippines | Virtual Assistant & Operations Support",
     description:
-      "Seamless VA helps founders and lean teams offload admin, bookkeeping, and growth operations with a conversion-focused support model.",
+      "Structured virtual assistant, bookkeeping, operations, and growth execution support for founders and lean teams.",
+    images: ["/seamlessva-logo.svg"],
   },
 };
 
@@ -67,7 +77,7 @@ export default function RootLayout({
 }>) {
   return (
     <html
-      lang="en"
+      lang="en-PH"
       className={`${displayFont.variable} ${bodyFont.variable} h-full scroll-smooth antialiased`}
     >
       <body className="min-h-full bg-[var(--color-cream)] text-[var(--color-ink)]">
