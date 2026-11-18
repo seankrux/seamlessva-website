@@ -45,3 +45,8 @@ next-env.d.ts
 .playwright-cli/
 output/
 package-lock.json
+
+.open-next/
+.wrangler/
+.dev.vars*
+.env.production

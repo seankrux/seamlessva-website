@@ -9,7 +9,10 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "typecheck": "next typegen && tsc --noEmit"
+    "typecheck": "next typegen && tsc --noEmit",
+    "build:cloudflare": "opennextjs-cloudflare build",
+    "deploy:cloudflare": "wrangler deploy",
+    "preview:cloudflare": "opennextjs-cloudflare build && wrangler dev"
   },
   "dependencies": {
     "next": "16.4.6",
@@ -24,6 +27,9 @@
     "eslint": "^9.39.5",
     "eslint-config-next": "16.4.6",
     "tailwindcss": "^4.3.5",
-    "typescript": "^5.9.3"
+    "typescript": "^5.9.3",
+    "@opennextjs/cloudflare": "1.20.17",
+    "wrangler": "4.164.0",
+    "rclone.js": "0.6.6"
   }
 }
